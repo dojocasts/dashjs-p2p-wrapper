@@ -10,8 +10,8 @@ Streamroot p2p module wrapper for dash.js. It enables [Streamroot's p2p](http://
 1. Include `streamroot-p2p` lib, `dashjs-wrapper.js` and `dash.js` in your web page:
   
   **The supported version of dash.js -- v2.1 has not been released yet, so you'll have to use official nightly build for now, either its [minified](http://dashif.org/reference/players/javascript/nightly/dash.js/dist/dash.all.min.js) or [debug](http://dashif.org/reference/players/javascript/nightly/dash.js/dist/dash.all.debug.js) version.**  
-  **After dash.js v2.1 release you can use official build obtained from `npm` or dash.js CDN.**  
-  **The release of 2.1 is on the way, and currently there is [RC3 v2.1 branch](https://github.com/Dash-Industry-Forum/dash.js/tree/RC3_v2.1.0) which has all the features requierd by this library, so if you are confident with building `dash.js`, you can build it from this branch.**
+  **After dash.js v2.1 release you can use the official build obtained from `npm` or dash.js CDN.**  
+  **The release of 2.1 is on the way, and currently there is [RC3 v2.1 branch](https://github.com/Dash-Industry-Forum/dash.js/tree/RC3_v2.1.0) which has all the features required by this library, so if you are confident with building `dash.js`, you can build it from this branch.**
   **For the time being, the example below is based on nightly builds.**
 
   ```html
