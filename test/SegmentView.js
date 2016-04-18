@@ -75,4 +75,12 @@ describe ("SegmentView", () => {
             segmentView.isInTrack(trackView).should.be.false();
         });
     });
+
+    describe("toJSON", () => {
+        it("The segmentView can be transfered through serialisation", function() {
+            var segmentView = new SegmentView({timestamp: 252323423423.3453, trackView: {adaptationId:1, representationId:0}});
+            var transferedSegmentView = new SegmentView(JSON.parse(JSON.stringify(segmentView)));
+            transferedSegmentView.isEqual(segmentView).should.be.true();
+        });
+    });
 });
