@@ -44,4 +44,35 @@ describe ("SegmentView", () => {
             segmentView1.isEqual(segmentView2).should.be.false();
         });
     });
+
+    describe("isInTrack", () => {
+
+        it ("Should be in track", () => {
+            let trackView = new TrackView({periodId: 0, adaptationSetId: 0, representationId: 0});
+            let segmentView = new SegmentView({ segmentId: 1.61803, trackView: {periodId: 0, adaptationSetId: 0, representationId: 0} });
+
+            segmentView.isInTrack(trackView).should.be.true();
+        });
+
+        it ("Should NOT be in track if periodId is DIFFERENT", () => {
+            let trackView = new TrackView({periodId: 1, adaptationSetId: 0, representationId: 0});
+            let segmentView = new SegmentView({ segmentId: 1.61803, trackView: {periodId: 0, adaptationSetId: 0, representationId: 0} });
+
+            segmentView.isInTrack(trackView).should.be.false();
+        });
+
+        it ("Should NOT be in track if adaptationSetId is DIFFERENT", () => {
+            let trackView = new TrackView({periodId: 0, adaptationSetId: 1, representationId: 0});
+            let segmentView = new SegmentView({ segmentId: 1.61803, trackView: {periodId: 0, adaptationSetId: 0, representationId: 0} });
+
+            segmentView.isInTrack(trackView).should.be.false();
+        });
+
+        it ("Should NOT be in track if representationId is DIFFERENT", () => {
+            let trackView = new TrackView({periodId: 0, adaptationSetId: 0, representationId: 1});
+            let segmentView = new SegmentView({ segmentId: 1.61803, trackView: {periodId: 0, adaptationSetId: 0, representationId: 0} });
+
+            segmentView.isInTrack(trackView).should.be.false();
+        });
+    });
 });
