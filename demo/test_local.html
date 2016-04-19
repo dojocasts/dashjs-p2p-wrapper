@@ -48,10 +48,6 @@
         <div id="peerStat" />
         <script>
             (function() {
-                function onMPDSelected(event) {
-                    var mpdUrl = document.getElementById("mpdSelector").value;
-                    window.location = window.location.origin + window.location.pathname + "?mpd=" + encodeURIComponent(mpdUrl);
-                }
 
                 function getURLParams(url) {
                     if (!url) {
@@ -70,6 +66,12 @@
 
                     return params;
                 }
+
+                // manifest selector handler
+                document.getElementById("mpdSelector").onchange = function() {
+                    var mpdUrl = document.getElementById("mpdSelector").value;
+                    window.location = window.location.origin + window.location.pathname + "?mpd=" + encodeURIComponent(mpdUrl);
+                };
 
                 // quality switch button click handler
                 document.getElementById("videoQualitySwitcher").onclick = function() {
@@ -98,9 +100,6 @@
                 var liveDelay = 30;
 
                 var dashjsWrapper = new DashjsWrapper(player, videoElement, p2pConfig, liveDelay);
-
-                var mpdSelector = document.getElementById("mpdSelector");
-                mpdSelector.onchange = onMPDSelected;
 
                 var url = getURLParams(document.location.search)["mpd"]
                         || mpdSelector.value
