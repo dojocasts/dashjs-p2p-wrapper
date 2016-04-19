@@ -1,5 +1,5 @@
-var TrackView = require("../TrackView");
 var should = require('should');
+var TrackView = require("../lib/TrackView");
 
 describe("TrackView",() => {
     describe("isEqual", function() {
