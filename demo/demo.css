@@ -1,0 +1,13 @@
+#mainfestSelection {
+    float: left;
+}
+
+#videoPlayer {
+    background: black;
+}
+
+#peerStat {
+    position: absolute;
+    top: 0;
+    right: 0;
+}

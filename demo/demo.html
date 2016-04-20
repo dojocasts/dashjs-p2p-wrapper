@@ -22,29 +22,38 @@
         <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/rickshaw/1.4.6/rickshaw.min.css">
         <script src="http://cdnjs.cloudflare.com/ajax/libs/rickshaw/1.4.6/rickshaw.min.js"> </script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.9/d3.min.js"> </script>
+
+        <link rel="stylesheet" href="demo.css">
     </head>
     <body>
-        <div id="mainfestSelection" />
-            <select id="mpdSelector" name="mpdSelector">
-                <option value="http://vm2.dashif.org/livesim/testpic_2s/Manifest.mpd">Live 2s seg(number based segment template | 1 video & 1 audio)</option>
-                <option value="http://vm2.dashif.org/livesim/testpic_6s/Manifest.mpd">Live 6s seg(number based segment template | 1 video & 1 audio)</option>
-                <option value="http://wowza.streamroot.io/testelias/mp4:sintel.mp4/manifest.mpd">Sintel 14:48(time based segment template | 1 video & 1 audio)</option>
-                <option value="http://media.streamroot.io/dash/examples/snow15/snowboard1_720p_dash.mpd">Snowboard 1:30(segment base | 3 video & 1 audio)</option>
-                <option value="http://dash.edgesuite.net/envivio/Envivio-dash2/manifest.mpd">Envivio 3:13(number based segment template | 9 video & 1 audio)</option>
-            </select>
-            <span id="liveDelay"></span>
-            <span id="bufferLength"></span>
         <div>
-        <div>
+            <div id="mainfestSelection" />
+                <select id="mpdSelector" name="mpdSelector">
+                    <option value="http://vm2.dashif.org/livesim/testpic_2s/Manifest.mpd">Live 2s seg(number based segment template | 1 video & 1 audio)</option>
+                    <option value="http://vm2.dashif.org/livesim/testpic_6s/Manifest.mpd">Live 6s seg(number based segment template | 1 video & 1 audio)</option>
+                    <option value="http://wowza.streamroot.io/testelias/mp4:sintel.mp4/manifest.mpd">Sintel 14:48(time based segment template | 1 video & 1 audio)</option>
+                    <option value="http://media.streamroot.io/dash/examples/snow15/snowboard1_720p_dash.mpd">Snowboard 1:30(segment base | 3 video & 1 audio)</option>
+                    <option value="http://dash.edgesuite.net/envivio/Envivio-dash2/manifest.mpd">Envivio 3:13(number based segment template | 9 video & 1 audio)</option>
+                </select>
+            </div>
+            <div id="playbackStats">
+                <span id="liveDelay"></span>
+                <span id="bufferLength"></span>
+            </div>
+        </div>
+
+        <div id="videoContainer">
             <video id="videoPlayer" width="480" height="360" controls muted></video>
         </div>
-        <div>
+
+        <div id="qualityControls">
             <button id="videoQualitySwitcher">setQualityForVideoTo</button>
             <input id="presentationId" type="text" />
         </div>
+
         <div id="bufferDisplay" />
         <div id="chunkDisplay" />
-        <div id="peerStat" />
+        <div id="p2pGraph" />
 
         <script>
             (function() {
