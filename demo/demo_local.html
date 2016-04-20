@@ -115,7 +115,9 @@
                 };
 
                 var liveDelay = Number(urlParams["liveDelay"]) || 30;
-                var dashjsWrapper = new DashjsWrapper(player, videoElement, p2pConfig, liveDelay);
+                var bufferLevel = Number(urlParams["bufferLevel"]);
+
+                var dashjsWrapper = new DashjsWrapper(player, videoElement, p2pConfig, liveDelay, bufferLevel);
 
                 var url = urlParams["mpd"]
                         || mpdSelector.value
