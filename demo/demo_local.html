@@ -80,7 +80,9 @@
                 // manifest selector handler
                 document.getElementById("mpdSelector").onchange = function() {
                     var mpdUrl = document.getElementById("mpdSelector").value;
-                    window.location = window.location.origin + window.location.pathname + "?mpd=" + encodeURIComponent(mpdUrl);
+                    player.attachSource(mpdUrl);
+                    // TODO: remove commented code when dynamic source swithcing will work
+                    // window.location = window.location.origin + window.location.pathname + "?mpd=" + encodeURIComponent(mpdUrl);
                 };
 
                 // quality switch button click handler
