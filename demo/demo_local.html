@@ -129,8 +129,10 @@
                 player.initialize(videoElement, url, autoStart);
 
                 function update() {
-                    document.getElementById("liveDelay").innerHTML = "liveDelay=" + liveDelay;
-                    document.getElementById("bufferLength").innerHTML = "bufferLength=" + player.getBufferLength();
+                    if (player.isReady()) {
+                        document.getElementById("liveDelay").innerHTML = "liveDelay=" + liveDelay;
+                        document.getElementById("bufferLength").innerHTML = "bufferLength=" + player.getBufferLength();
+                    }
                 };
 
                 var updateIntervalId;
