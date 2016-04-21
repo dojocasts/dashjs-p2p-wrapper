@@ -81,7 +81,7 @@
                 document.getElementById("mpdSelector").onchange = function() {
                     stopUpdate();
                     var mpdUrl = document.getElementById("mpdSelector").value;
-                    // player.attachSource(mpdUrl);
+                    player.attachSource(mpdUrl);
                     // TODO: remove commented code when dynamic source swithcing will work
                     // window.location = window.location.origin + window.location.pathname + "?mpd=" + encodeURIComponent(mpdUrl);
                     startUpdate();
