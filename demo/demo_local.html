@@ -79,10 +79,12 @@
 
                 // manifest selector handler
                 document.getElementById("mpdSelector").onchange = function() {
+                    stopUpdate();
                     var mpdUrl = document.getElementById("mpdSelector").value;
-                    player.attachSource(mpdUrl);
+                    // player.attachSource(mpdUrl);
                     // TODO: remove commented code when dynamic source swithcing will work
                     // window.location = window.location.origin + window.location.pathname + "?mpd=" + encodeURIComponent(mpdUrl);
+                    startUpdate();
                 };
 
                 // quality switch button click handler
@@ -131,11 +133,16 @@
                     document.getElementById("bufferLength").innerHTML = "bufferLength=" + player.getBufferLength();
                 };
 
-                setInterval(
-                    update,
-                    1000
-                );
+                var updateIntervalId;
+                function startUpdate() {
+                    updateIntervalId = setInterval(update, 1000);
+                };
 
+                function stopUpdate() {
+                    clearInterval(updateIntervalId);
+                };
+
+                startUpdate();
             })();
         </script>
     </body>
