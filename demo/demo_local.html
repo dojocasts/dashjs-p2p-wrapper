@@ -2,11 +2,11 @@
     <head>
         <script>
             window._TEST_ = false;
-            window._DEBUG_ = true;
+            window._DEBUG_ = false;
         </script>
 
         <!-- dash.js -->
-        <script src="http://localhost:5555/dist/dash.all.debug.js"></script>
+        <script src="http://localhost:5555/build/temp/dash.all.debug.js"></script>
 
         <!-- streamroot-dash wrapper -->
         <script src="../dist/dashjs-wrapper.debug.js"></script>
@@ -31,6 +31,7 @@
             <div id="mainfestSelection" />
                 <select id="mpdSelector" name="mpdSelector">
                     <option value="http://vm2.dashif.org/livesim/testpic_2s/Manifest.mpd">Live 2s seg(number template | 1 video & 1 audio)</option>
+                    <option value="https://origin.cdn.afrostream.net/live/bet.isml/bet.mpd">Live Afrostream</option>
                     <option value="http://media.streamroot.io/dash/examples/snow15/snowboard1_720p_dash.mpd">Snowboard 1:30(segment base | 3 video & 1 audio)</option>
                     <option value="http://dash.edgesuite.net/envivio/Envivio-dash2/manifest.mpd">Envivio 3:13(number template | 9 video & 1 audio)</option>
                 </select>
@@ -78,6 +79,7 @@
                 // manifest selector handler
                 document.getElementById("mpdSelector").onchange = function() {
                     stopUpdate();
+                    console.info("going to attach new source");
                     var mpdUrl = document.getElementById("mpdSelector").value;
                     player.attachSource(mpdUrl);
                     // TODO: remove commented code when dynamic source swithcing will work
