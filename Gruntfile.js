@@ -59,4 +59,4 @@ module.exports = function(grunt) {
 
     grunt.registerTask('debug-watch', ['browserify:watch']);
     grunt.registerTask('build', 'build dist script', ['browserify:debug', 'browserify:dist', 'uglify:dist']);
-}
+};
