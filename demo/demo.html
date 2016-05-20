@@ -25,16 +25,14 @@
             <div id="mainfestSelection" />
                 <select id="mpdSelector" name="mpdSelector">
                     <option value="http://akamai.streamroot.edgesuite.net/vodorigin/sintel.mp4/manifest.mpd">Sintel VOD (segment timeline | 1 video & 1 audio)</option>
-                    <option value="http://vm2.dashif.org/livesim/testpic_2s/Manifest.mpd">Live 2s seg(number based segment template | 1 video & 1 audio)</option>
-                    <option value="http://vm2.dashif.org/livesim/testpic_6s/Manifest.mpd">Live 6s seg(number based segment template | 1 video & 1 audio)</option>
-                    <option value="http://wowza.streamroot.io/testelias/mp4:sintel.mp4/manifest.mpd">Sintel 14:48(time based segment template | 1 video & 1 audio)</option>
+                    <option value="http://vm2.dashif.org/livesim/testpic_2s/Manifest.mpd">Live 2s seg(number template | 1 video & 1 audio)</option>
                     <option value="http://media.streamroot.io/dash/examples/snow15/snowboard1_720p_dash.mpd">Snowboard 1:30(segment base | 3 video & 1 audio)</option>
-                    <option value="http://dash.edgesuite.net/envivio/Envivio-dash2/manifest.mpd">Envivio 3:13(number based segment template | 9 video & 1 audio)</option>
+                    <option value="http://dash.edgesuite.net/envivio/Envivio-dash2/manifest.mpd">Envivio 3:13(number template | 9 video & 1 audio)</option>
                 </select>
             </div>
             <div id="playbackStats">
-                <span id="liveDelay"></span>
-                <span id="bufferLength"></span>
+                <span id="liveDelay">liveDelay=</span>
+                <span id="bufferLength">bufferLength=</span>
             </div>
         </div>
 
@@ -75,8 +73,10 @@
 
                 // manifest selector handler
                 document.getElementById("mpdSelector").onchange = function() {
+                    stopUpdate();
                     var mpdUrl = document.getElementById("mpdSelector").value;
-                    window.location = window.location.origin + window.location.pathname + "?mpd=" + encodeURIComponent(mpdUrl);
+                    player.attachSource(mpdUrl);
+                    startUpdate();
                 };
 
                 // quality switch button click handler
@@ -104,7 +104,7 @@
 
                 var url = urlParams.mpd
                         || mpdSelector.value
-                        || "http://wowza.streamroot.io/testelias/mp4:sintel.mp4/manifest.mpd";
+                        || "http://akamai.streamroot.edgesuite.net/vodorigin/sintel.mp4/manifest.mpd";
                 mpdSelector.value = url;
 
                 var autoStart = true;
@@ -112,15 +112,22 @@
                 player.initialize(videoElement, url, autoStart);
 
                 function update() {
-                    document.getElementById("liveDelay").innerHTML = "liveDelay=" + liveDelay;
-                    document.getElementById("bufferLength").innerHTML = "bufferLength=" + player.getBufferLength();
+                    if (player.isReady()) {
+                        document.getElementById("liveDelay").innerHTML = "liveDelay=" + liveDelay;
+                        document.getElementById("bufferLength").innerHTML = "bufferLength=" + player.getBufferLength();
+                    }
                 }
 
-                setInterval(
-                    update,
-                    1000
-                );
+                var updateIntervalId;
+                function startUpdate() {
+                    updateIntervalId = setInterval(update, 1000);
+                }
 
+                function stopUpdate() {
+                    clearInterval(updateIntervalId);
+                }
+
+                startUpdate();
             })();
         </script>
     </body>

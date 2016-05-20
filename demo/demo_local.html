@@ -1,10 +1,5 @@
 <html>
     <head>
-        <script>
-            window._TEST_ = false;
-            window._DEBUG_ = false;
-        </script>
-
         <!-- dash.js -->
         <script src="http://localhost:5555/build/temp/dash.all.debug.js"></script>
 
@@ -30,7 +25,7 @@
         <div>
             <div id="mainfestSelection" />
                 <select id="mpdSelector" name="mpdSelector">
-                    <option value="https://origin.cdn.afrostream.net/live/bet.isml/bet.mpd">Live Afrostream sample(time template | 1 video & 1 audio)</option>
+                    <option value="http://akamai.streamroot.edgesuite.net/vodorigin/sintel.mp4/manifest.mpd">Sintel VOD (segment timeline | 1 video & 1 audio)</option>
                     <option value="http://vm2.dashif.org/livesim/testpic_2s/Manifest.mpd">Live 2s seg(number template | 1 video & 1 audio)</option>
                     <option value="http://media.streamroot.io/dash/examples/snow15/snowboard1_720p_dash.mpd">Snowboard 1:30(segment base | 3 video & 1 audio)</option>
                     <option value="http://dash.edgesuite.net/envivio/Envivio-dash2/manifest.mpd">Envivio 3:13(number template | 9 video & 1 audio)</option>
@@ -54,6 +49,7 @@
         <div id="bufferDisplay" />
         <div id="chunkDisplay" />
         <div id="p2pGraph" />
+        <div id="peerStat"/>
 
         <script>
             (function() {
@@ -79,7 +75,6 @@
                 // manifest selector handler
                 document.getElementById("mpdSelector").onchange = function() {
                     stopUpdate();
-                    console.info("going to attach new source");
                     var mpdUrl = document.getElementById("mpdSelector").value;
                     player.attachSource(mpdUrl);
                     startUpdate();
@@ -100,12 +95,6 @@
                 var videoElementId = "videoPlayer";
                 var videoElement = document.getElementById(videoElementId);
 
-//                var url = "http://wowza.streamroot.io:1935/live/stream1/manifest.mpd"; //live
-//                var url = "http://vm2.dashif.org/livesim/testpic_2s/Manifest.mpd"; //live
-//                var url = "http://irtdashreference-i.akamaihd.net/dash/live/901161/bfs/manifestBR.mpd"; //live
-//                var url = "http://irtdashreference-i.akamaihd.net/dash/live/901161/bfs/manifestARD.mpd"; //live
-//                var url = "https://wowzaec2demo.streamlock.net/live/bigbuckbunny/manifest_mpm4sav_mvtime.mpd"; //live
-
                 var p2pConfig = {
                     streamrootKey: "ry-tguzre2t",
                     debug: true
@@ -116,7 +105,7 @@
 
                 var url = urlParams.mpd
                         || mpdSelector.value
-                        || "http://wowza.streamroot.io/testelias/mp4:sintel.mp4/manifest.mpd";
+                        || "http://akamai.streamroot.edgesuite.net/vodorigin/sintel.mp4/manifest.mpd";
                 mpdSelector.value = url;
 
                 var autoStart = true;
