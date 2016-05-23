@@ -4,7 +4,7 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         browserify: {
-            watch: {
+            dev: {
                 src: 'lib/DashjsWrapper.js',
                 dest: 'dist/dashjs-wrapper.debug.js',
                 options:  {
@@ -16,19 +16,7 @@ module.exports = function(grunt) {
                     keepAlive: true
                 }
             },
-            debug: {
-                src: 'lib/DashjsWrapper.js',
-                dest: 'dist/dashjs-wrapper.debug.js',
-                options:  {
-                    browserifyOptions: {
-                        standalone: 'DashjsWrapper',
-                        debug: true
-                    },
-                    watch: false,
-                    keepAlive: false
-                }
-            },
-            dist: {
+            prod: {
                 src: 'lib/DashjsWrapper.js',
                 dest: 'dist/dashjs-wrapper.js',
                 options:  {
@@ -57,6 +45,5 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.registerTask('debug-watch', ['browserify:watch']);
-    grunt.registerTask('build', 'build dist script', ['browserify:debug', 'browserify:dist', 'uglify:dist']);
+    grunt.registerTask('build', 'build dist script', ['browserify:prod', 'uglify:dist']);
 };
