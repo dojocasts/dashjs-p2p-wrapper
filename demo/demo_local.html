@@ -90,7 +90,7 @@
 
                 var player = dashjs.MediaPlayer().create();
 
-                player.getDebug().setLogToBrowserConsole(urlParams.dashjsLog);
+                player.getDebug().setLogToBrowserConsole(urlParams.dashjsLog != "0");
 
                 var videoElementId = "videoPlayer";
                 var videoElement = document.getElementById(videoElementId);
