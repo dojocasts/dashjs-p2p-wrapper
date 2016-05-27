@@ -101,9 +101,7 @@
                 var liveDelay = Number(urlParams.liveDelay) || 30;
                 var dashjsWrapper = new DashjsWrapper(player, videoElement, p2pConfig, liveDelay);
 
-                var url = urlParams.mpd
-                        || mpdSelector.value
-                        || "http://akamai.streamroot.edgesuite.net/vodorigin/sintel.mp4/manifest.mpd";
+                var url = urlParams.mpd || mpdSelector.value;
                 mpdSelector.value = url;
 
                 var autoStart = true;
