@@ -1,10 +1,10 @@
-# streamroot-dash
+# dashjs-p2p-wrapper
 
 Streamroot p2p module wrapper for dash.js. It enables [Streamroot's p2p](http://streamroot.io) solution for [dash.js](https://github.com/Dash-Industry-Forum/dash.js).
 
 ## Quick start
 
-1. Clone this repo `git clone https://github.com/streamroot/streamroot-dash.git`
+1. Clone this repo `git clone https://github.com/streamroot/dashjs-p2p-wrapper.git`
 1. Install library dependencies `npm install`
 1. Build the library `grunt build`. The result will be here `dist/dashjs-wrapper.js`.
 1. Include `streamroot-p2p` lib, `dashjs-wrapper.js` and `dash.js` in your web page:
@@ -59,4 +59,4 @@ Streamroot p2p module wrapper for dash.js. It enables [Streamroot's p2p](http://
 
 1. To see some p2p traffic open several browser tabs/windows playing the same manifest (so there will be peers to exchange p2p traffic).
 
-You can check an example [here](http://streamroot.github.io/streamroot-dash/demo/demo.html)
+You can check an example [here](http://streamroot.github.io/dashjs-p2p-wrapper/demo/demo.html)
