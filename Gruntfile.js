@@ -6,7 +6,7 @@ module.exports = function(grunt) {
         browserify: {
             dev: {
                 src: 'lib/DashjsWrapper.js',
-                dest: 'dist/dashjs-wrapper.debug.js',
+                dest: 'dist/dashjs-p2p-wrapper.debug.js',
                 options:  {
                     browserifyOptions: {
                         standalone: 'DashjsWrapper',
@@ -18,7 +18,7 @@ module.exports = function(grunt) {
             },
             prod: {
                 src: 'lib/DashjsWrapper.js',
-                dest: 'dist/dashjs-wrapper.js',
+                dest: 'dist/dashjs-p2p-wrapper.js',
                 options:  {
                     browserifyOptions: {
                         standalone: 'DashjsWrapper',
@@ -39,7 +39,7 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'dist/dashjs-wrapper.min.js': 'dist/dashjs-wrapper.js'
+                    'dist/dashjs-p2p-wrapper.min.js': 'dist/dashjs-p2p-wrapper.js'
                 }
             }
         }
