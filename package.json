@@ -1,5 +1,5 @@
 {
-  "name": "streamroot-dash",
+  "name": "dashjs-p2p-wrapper",
   "description": "A module that wraps Streamroot p2p module and dash.js together",
   "author": {
     "name": "StreamRoot",
