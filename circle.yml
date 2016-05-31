@@ -6,7 +6,9 @@ machine:
 
 dependencies:
     pre:
+        - gem install aws-sdk
         - npm install -g grunt-cli
+
     override:
         - npm install
 
