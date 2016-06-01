@@ -1,3 +1,108 @@
 machine:
     node:
         version: 6.0.0
+    ruby:
+        version: 2.2.0
+
+dependencies:
+    pre:
+        - gem install aws-sdk
+        - npm install -g grunt-cli
+
+    override:
+        - npm install
+
+test:
+    override:
+        - npm test
+
+deployment:
+    features:
+        branch: /^(?!(?:dev|master)$).+$/
+        commands:
+            # Clone tools
+            - git config --global user.email "test@streamroot.io"
+            - git config --global user.name "Jean Hum"
+            - git clone git@github.com:streamroot/toolkit.git
+
+            - grunt browserify:prod
+            - toolkit/add_banner.rb --file dist/dashjs-p2p-wrapper.js --deploy_env $CIRCLE_BRANCH
+            - cp dist/dashjs-p2p-wrapper.js $CIRCLE_ARTIFACTS/dashjs-p2p-wrapper.js
+            - toolkit/upload_to_s3.rb --bucket features.streamroot.io
+                                      --region eu-west-1
+                                      --file $CIRCLE_ARTIFACTS/dashjs-p2p-wrapper.js
+                                      --destinations dashjs-p2p-wrapper/$CIRCLE_BRANCH/dashjs-p2p-wrapper.js
+                                      --key $S3_KEY
+                                      --secret $S3_SECRET
+
+    staging:
+        branch: dev
+        commands:
+            # Clone tools
+            - git config --global user.email "test@streamroot.io"
+            - git config --global user.name "Jean Hum"
+            - git clone git@github.com:streamroot/bridge.git
+            - git clone git@github.com:streamroot/toolkit.git
+
+            # Cleanup
+            - rm -rf dist
+
+            # Generate dist
+            - grunt browserify:prod
+            - toolkit/add_banner.rb --file dist/dashjs-p2p-wrapper.js
+                                    --deploy_env staging
+                                    --version $(toolkit/current_version.rb --beta ${CIRCLE_BUILD_NUM})
+            - cp dist/dashjs-p2p-wrapper.js $CIRCLE_ARTIFACTS/dashjs-p2p-wrapper.js
+
+            # Upload version
+            - toolkit/upload_to_s3.rb --bucket staging.streamroot.io
+                                      --region eu-west-1
+                                      --file $CIRCLE_ARTIFACTS/dashjs-p2p-wrapper.js
+                                      --destinations dashjs-p2p-wrapper/$(toolkit/current_version.rb --beta ${CIRCLE_BUILD_NUM})/dashjs-p2p-wrapper.js
+                                                     dashjs-p2p-wrapper/latest/dashjs-p2p-wrapper.js
+                                      --key $S3_KEY
+                                      --secret $S3_SECRET
+
+            # Run bridge
+            - bridge/run.rb --current_module dashjs-p2p-wrapper --trigger_branch dev --token $BRIDGE_TOKEN
+
+    preprod:
+        branch: master
+        commands:
+            # Clone tools
+            - git config --global user.email "test@streamroot.io"
+            - git config --global user.name "Jean Hum"
+            - git clone git@github.com:streamroot/bridge.git
+            - git clone git@github.com:streamroot/toolkit.git
+
+            # Update version
+            - toolkit/update_version.rb
+
+            # Cleanup
+            - rm -rf dist
+
+            # Generate dist
+            - grunt browserify:prod
+            - toolkit/add_banner.rb --file dist/dashjs-p2p-wrapper.js
+                                    --version $(toolkit/current_version.rb ${CIRCLE_BUILD_NUM})
+
+            - cp dist/dashjs-p2p-wrapper.js $CIRCLE_ARTIFACTS/dashjs-p2p-wrapper.js
+
+            # Build package.json
+            - toolkit/build_dist_package.rb --version $(toolkit/current_version.rb)
+                                            -o dist/desktop/package.json
+                                            --main ./dashjs-p2p-wrapper.js
+
+            # Upload version
+            - toolkit/upload_to_s3.rb --bucket preprod.streamroot.io
+                                      --region eu-west-1
+                                      --file $CIRCLE_ARTIFACTS/dashjs-p2p-wrapper.js
+                                      --destinations dashjs-p2p-wrapper/$(toolkit/current_version.rb --major)/dashjs-p2p-wrapper.js
+                                                     dashjs-p2p-wrapper/$(toolkit/current_version.rb --no_patch)/dashjs-p2p-wrapper.js
+                                                     dashjs-p2p-wrapper/$(toolkit/current_version.rb)/dashjs-p2p-wrapper.js
+                                                     dashjs-p2p-wrapper/latest/dashjs-p2p-wrapper.js
+                                      --key $S3_KEY
+                                      --secret $S3_SECRET
+
+            # Run bridge
+            - bridge/run.rb --current_module dashjs-p2p-wrapper --trigger_branch master --token $BRIDGE_TOKEN
