@@ -5,7 +5,7 @@
     "name": "StreamRoot",
     "email": "contact@streamroot.io"
   },
-  "version": "1.0.0-beta0",
+  "version": "1.0.0",
   "main": "lib/DashjsWrapper.js",
   "scripts": {
     "test": "node_modules/.bin/_mocha --require mochahook"
