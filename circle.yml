@@ -11,6 +11,8 @@ dependencies:
 
     override:
         - npm install
+    post:
+        - npm ls --depth=0 > $CIRCLE_ARTIFACTS/package.lock
 
 test:
     override:
