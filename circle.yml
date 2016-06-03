@@ -88,11 +88,6 @@ deployment:
 
             - cp dist/dashjs-p2p-wrapper.js $CIRCLE_ARTIFACTS/dashjs-p2p-wrapper.js
 
-            # Build package.json
-            - toolkit/build_dist_package.rb --version $(toolkit/current_version.rb)
-                                            -o dist/desktop/package.json
-                                            --main ./dashjs-p2p-wrapper.js
-
             # Upload version
             - toolkit/upload_to_s3.rb --bucket preprod.streamroot.io
                                       --region eu-west-1
