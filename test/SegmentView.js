@@ -1,4 +1,3 @@
-var should = require("should");
 var SegmentView = require("../lib/SegmentView");
 var TrackView = require("../lib/TrackView");
 

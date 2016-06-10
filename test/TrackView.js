@@ -1,4 +1,3 @@
-var should = require('should');
 var TrackView = require("../lib/TrackView");
 
 describe("TrackView",() => {
