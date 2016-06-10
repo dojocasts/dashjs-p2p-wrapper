@@ -1,4 +1,4 @@
-var TrackView = require("../lib/TrackView");
+import TrackView from '../lib/TrackView';
 
 describe("TrackView",() => {
     describe("isEqual", function() {

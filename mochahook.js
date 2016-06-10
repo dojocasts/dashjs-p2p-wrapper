@@ -1,5 +1,4 @@
-require("babel/register")({
+require('should');
+require('babel-core/register')({
     ignore: /node_modules/,
 });
-
-require('should');
