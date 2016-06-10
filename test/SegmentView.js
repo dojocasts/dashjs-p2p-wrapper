@@ -1,6 +1,5 @@
-var should = require("should");
-var SegmentView = require("../lib/SegmentView");
-var TrackView = require("../lib/TrackView");
+import SegmentView from '../lib/SegmentView';
+import TrackView from '../lib/TrackView';
 
 describe ("SegmentView", () => {
     describe("toArrayBuffer", () => {
