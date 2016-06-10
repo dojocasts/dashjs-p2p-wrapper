@@ -1,11 +1,19 @@
 {
   "name": "dashjs-p2p-wrapper",
   "description": "A module that wraps Streamroot p2p module and dash.js together",
+  "version": "1.1.0-beta0",
   "author": {
-    "name": "StreamRoot",
+    "name": "Streamroot",
     "email": "contact@streamroot.io"
   },
-  "version": "1.1.0-beta0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/streamroot/dashjs-p2p-wrapper"
+  },
+  "bugs": {
+    "url": "https://github.com/streamroot/dashjs-p2p-wrapper/issues"
+  },
+  "license": "MIT",
   "main": "lib/DashjsWrapper.js",
   "scripts": {
     "lint": "node_modules/.bin/eslint lib/ test/",
