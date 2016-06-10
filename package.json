@@ -16,8 +16,8 @@
   "license": "MIT",
   "main": "lib/DashjsWrapper.js",
   "scripts": {
-    "lint": "node_modules/.bin/eslint lib/ test/",
-    "test": "node_modules/.bin/_mocha --require mochahook"
+    "lint": "eslint lib/ test/",
+    "test": "mocha --require mochahook "
   },
   "dependencies": {
     "dashjs": "git://github.com/Dash-Industry-Forum/dash.js.git#development"
