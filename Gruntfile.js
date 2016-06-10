@@ -36,25 +36,25 @@ module.exports = function(grunt) {
                 false
             ),
             wrapper_dev: browserifyHelper(
-                'lib/DashjsWrapper.js',
-                'dist/wrapper/dashjs-p2p-wrapper.debug.js',
-                'DashjsWrapper',
-                true
-            )
-            // bundle: browserifyHelper(
-            //     'lib/DashjsBundle.js',
-            //     'dist/bundle/dashjs-p2p-bundle.js',
-            //     'Dashjs',
-            //     false
-            // ),
-            // bundle_dev: browserifyHelper(
-            //     'lib/DashjsBundle.js',
-            //     'dist/bundle/dashjs-p2p-bundle.js',
-            //     'Dashjs',
-            //     true
-            // )
+                    'lib/DashjsWrapper.js',
+                    'dist/wrapper/dashjs-p2p-wrapper.debug.js',
+                    'DashjsWrapper',
+                    true
+                )
+                // bundle: browserifyHelper(
+                //     'lib/DashjsBundle.js',
+                //     'dist/bundle/dashjs-p2p-bundle.js',
+                //     'Dashjs',
+                //     false
+                // ),
+                // bundle_dev: browserifyHelper(
+                //     'lib/DashjsBundle.js',
+                //     'dist/bundle/dashjs-p2p-bundle.js',
+                //     'Dashjs',
+                //     true
+                // )
         }
     });
 
-    grunt.registerTask('build', 'build dist script', ['browserify:wrapper'/*, 'browserify:bundle'*/]);
+    grunt.registerTask('build', 'build dist script', ['browserify:wrapper' /*, 'browserify:bundle'*/ ]);
 };
