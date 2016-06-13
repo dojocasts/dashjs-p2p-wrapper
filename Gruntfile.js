@@ -34,6 +34,18 @@ module.exports = function(grunt) {
             dashjs_build: 'cd dashjs && npm install && grunt'
         },
         browserify: {
+            bundle: browserifyHelper(
+                'lib/DashjsMediaPlayerBundle.js',
+                'dist/dashjs-p2p-bundle.debug.js',
+                'DashjsP2PBundle',
+                false
+            ),
+            bundle_dev: browserifyHelper(
+                'lib/DashjsMediaPlayerBundle.js',
+                'dist/dashjs-p2p-bundle.debug.js',
+                'DashjsP2PBundle',
+                true
+            ),
             wrapper: browserifyHelper(
                 'lib/DashjsWrapper.js',
                 'dist/wrapper/dashjs-p2p-wrapper.js',
