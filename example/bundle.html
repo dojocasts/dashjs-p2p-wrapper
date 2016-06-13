@@ -1,0 +1,125 @@
+<html>
+    <head>
+
+        <!-- streamroot-dash wrapper -->
+        <script src="../dist/dashjs-p2p-bundle.debug.js"></script>
+
+        <!-- p2p graphics and peer stats -->
+        <script src="http://cdn.streamroot.io/2/scripts/peerStat.js"></script>
+        <script src="http://cdn.streamroot.io/2/scripts/p2pGraph.js"></script>
+
+        <!-- graph dependencies -->
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/rickshaw/1.4.6/rickshaw.min.css">
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/rickshaw/1.4.6/rickshaw.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.9/d3.min.js"></script>
+    </head>
+    <body>
+        <div>
+            <div id="mainfestSelection" />
+                <select id="mpdSelector" name="mpdSelector">
+                    <option value="http://akamai.streamroot.edgesuite.net/vodorigin/sintel.mp4/manifest.mpd">Sintel VOD (segment timeline | 1 video & 1 audio)</option>
+                    <option value="http://vm2.dashif.org/livesim/testpic_2s/Manifest.mpd">Live 2s seg(number template | 1 video & 1 audio)</option>
+                    <option value="http://media.streamroot.io/dash/examples/snow15/snowboard1_720p_dash.mpd">Snowboard 1:30(segment base | 3 video & 1 audio)</option>
+                    <option value="http://dash.edgesuite.net/envivio/Envivio-dash2/manifest.mpd">Envivio 3:13(number template | 9 video & 1 audio)</option>
+                </select>
+            </div>
+            <div id="playbackStats">
+                <span id="liveDelay">liveDelay=</span>
+                <span id="bufferLength">bufferLength=</span>
+            </div>
+        </div>
+
+        <div id="videoContainer">
+            <video id="videoPlayer" width="480" height="360" controls muted></video>
+        </div>
+
+        <div id="qualityControls">
+            <button id="videoQualitySwitcher">setQualityForVideoTo</button>
+            <input id="presentationId" type="text" />
+        </div>
+
+        <div id="bufferDisplay" />
+        <div id="chunkDisplay" />
+        <div id="p2pGraph" />
+        <div id="peerStat"/>
+
+        <script>
+            (function() {
+
+                function update() {
+                    if (player.isReady()) {
+                        document.getElementById("liveDelay").innerHTML = "liveDelay=" + liveDelay;
+                        document.getElementById("bufferLength").innerHTML = "bufferLength=" + player.getBufferLength();
+                    }
+                }
+
+                var updateIntervalId;
+                function startUpdate() {
+                    updateIntervalId = setInterval(update, 1000);
+                }
+
+                function stopUpdate() {
+                    clearInterval(updateIntervalId);
+                }
+
+                function getURLParams(url) {
+                    if (!url) {
+                        return {};
+                    }
+
+                    var search = url.substring(1); //removing '?'
+                    var paramValueList = search.split("&");
+                    var params = {};
+                    paramValueList.forEach(function(entry){
+                        var paramValue = entry.split("=");
+                        if (entry) {
+                            params[paramValue[0]] = decodeURIComponent(paramValue[1]);
+                        }
+                    });
+
+                    return params;
+                }
+
+                // manifest selector handler
+                document.getElementById("mpdSelector").onchange = function() {
+                    stopUpdate();
+                    var mpdUrl = document.getElementById("mpdSelector").value;
+                    player.attachSource(mpdUrl);
+                    startUpdate();
+                };
+
+                // quality switch button click handler
+                document.getElementById("videoQualitySwitcher").onclick = function() {
+                    player.setAutoSwitchQualityFor('video', false);
+                    player.setQualityFor('video', document.getElementById("presentationId").value);
+                };
+
+                var urlParams = getURLParams(document.location.search);
+
+                var videoElementId = "videoPlayer";
+                var videoElement = document.getElementById(videoElementId);
+
+                var p2pConfig = {
+                    videoElement: videoElement,
+                    streamrootKey: "ry-tguzre2t",
+                    debug: true
+                };
+
+                var liveDelay = Number(urlParams.liveDelay) || 30;
+
+                var player = DashjsP2PBundle.MediaPlayer().create(p2pConfig);
+
+                player.getDebug().setLogToBrowserConsole(urlParams.dashjsLog != "0");
+
+                var url = urlParams.mpd || mpdSelector.value;
+                mpdSelector.value = url;
+
+                var autoStart = true;
+
+                player.initialize(videoElement, url, autoStart);
+
+                startUpdate();
+            })();
+        </script>
+    </body>
+</html>

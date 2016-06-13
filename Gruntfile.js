@@ -27,6 +27,18 @@ module.exports = function(grunt) {
                     watch: false,
                     keepAlive: false,
                 }
+            },
+            bundle: {
+                src: 'lib/DashjsMediaPlayerBundle.js',
+                dest: 'dist/dashjs-p2p-bundle.debug.js',
+                options:  {
+                    browserifyOptions: {
+                        standalone: 'DashjsP2PBundle',
+                        debug: true
+                    },
+                    watch: true,
+                    keepAlive: true
+                }
             }
         },
         uglify: {
