@@ -46,6 +46,23 @@
         <script>
             (function() {
 
+                var updateIntervalId;
+
+                function startUpdate() {
+                    updateIntervalId = setInterval(update, 1000);
+                }
+
+                function stopUpdate() {
+                    clearInterval(updateIntervalId);
+                }
+
+                function update() {
+                    if (player.isReady()) {
+                        document.getElementById("liveDelay").innerHTML = "liveDelay=" + liveDelay;
+                        document.getElementById("bufferLength").innerHTML = "bufferLength=" + player.getBufferLength();
+                    }
+                }
+
                 function getURLParams(url) {
                     if (!url) {
                         return {};
@@ -80,10 +97,6 @@
 
                 var urlParams = getURLParams(document.location.search);
 
-                var player = dashjs.MediaPlayer().create();
-
-                player.getDebug().setLogToBrowserConsole(urlParams.dashjsLog != "0");
-
                 var videoElementId = "videoPlayer";
                 var videoElement = document.getElementById(videoElementId);
 
@@ -92,31 +105,18 @@
                     debug: true
                 };
 
-                var liveDelay = Number(urlParams.liveDelay) || 30;
-                var dashjsWrapper = new DashjsWrapper(player, videoElement, p2pConfig, liveDelay);
-
                 var url = urlParams.mpd || mpdSelector.value;
-                mpdSelector.value = url;
-
                 var autoStart = true;
 
+                var liveDelay = Number(urlParams.liveDelay) || 30;
+                
+                var player = dashjs.MediaPlayer().create();
+                var dashjsWrapper = new DashjsWrapper(player, videoElement, p2pConfig, liveDelay);
+
+                player.getDebug().setLogToBrowserConsole(urlParams.dashjsLog != "0");
                 player.initialize(videoElement, url, autoStart);
 
-                function update() {
-                    if (player.isReady()) {
-                        document.getElementById("liveDelay").innerHTML = "liveDelay=" + liveDelay;
-                        document.getElementById("bufferLength").innerHTML = "bufferLength=" + player.getBufferLength();
-                    }
-                }
-
-                var updateIntervalId;
-                function startUpdate() {
-                    updateIntervalId = setInterval(update, 1000);
-                }
-
-                function stopUpdate() {
-                    clearInterval(updateIntervalId);
-                }
+                mpdSelector.value = url;
 
                 startUpdate();
             })();

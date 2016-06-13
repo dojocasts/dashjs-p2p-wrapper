@@ -46,20 +46,21 @@
         <script>
             (function() {
 
-                function update() {
-                    if (player.isReady()) {
-                        document.getElementById("liveDelay").innerHTML = "liveDelay=" + liveDelay;
-                        document.getElementById("bufferLength").innerHTML = "bufferLength=" + player.getBufferLength();
-                    }
-                }
-
                 var updateIntervalId;
+
                 function startUpdate() {
                     updateIntervalId = setInterval(update, 1000);
                 }
 
                 function stopUpdate() {
                     clearInterval(updateIntervalId);
+                }
+
+                function update() {
+                    if (player.isReady()) {
+                        document.getElementById("liveDelay").innerHTML = "liveDelay=" + liveDelay;
+                        document.getElementById("bufferLength").innerHTML = "bufferLength=" + player.getBufferLength();
+                    }
                 }
 
                 function getURLParams(url) {
@@ -106,17 +107,15 @@
                 };
 
                 var liveDelay = Number(urlParams.liveDelay) || 30;
+                var url = urlParams.mpd || mpdSelector.value;
+                var autoStart = true;
 
                 var player = DashjsP2PBundle.MediaPlayer().create(p2pConfig);
 
                 player.getDebug().setLogToBrowserConsole(urlParams.dashjsLog != "0");
-
-                var url = urlParams.mpd || mpdSelector.value;
-                mpdSelector.value = url;
-
-                var autoStart = true;
-
                 player.initialize(videoElement, url, autoStart);
+
+                mpdSelector.value = url;
 
                 startUpdate();
             })();

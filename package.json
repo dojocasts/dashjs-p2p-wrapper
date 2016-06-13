@@ -9,8 +9,7 @@
   "main": "lib/DashjsWrapper.js",
   "scripts": {
     "test": "node_modules/.bin/_mocha --require mochahook",
-    "build_dashjs": "cd node_modules/dashjs && npm install && grunt",
-    "postinstall": "npm run build_dashjs"
+    "postinstall": "grunt dashjs"
   },
   "browserify": {
     "transform": [
@@ -29,6 +28,7 @@
     "grunt": "^0.4.5",
     "grunt-browserify": "4.0.1",
     "grunt-contrib-uglify": "^1.0.0",
+    "grunt-shell": "^1.3.0",
     "matchdep": "0.3.0",
     "mocha": "^2.4.5",
     "should": "^8.1.1",

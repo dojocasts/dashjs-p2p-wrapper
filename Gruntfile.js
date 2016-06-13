@@ -3,6 +3,11 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        shell: {
+            dashjs_clean: 'rm -Rf dashjs',
+            dashjs_copy: 'cp -R node_modules/dashjs .',
+            dashjs_build: 'cd dashjs && npm install && grunt'
+        },
         browserify: {
             dev: {
                 src: 'lib/DashjsWrapper.js',
@@ -56,6 +61,8 @@ module.exports = function(grunt) {
             }
         }
     });
+
+    grunt.registerTask('dashjs', ['shell:dashjs_clean', 'shell:dashjs_copy', 'shell:dashjs_build']);
 
     grunt.registerTask('build', 'build dist script', ['browserify:prod', 'uglify:dist']);
 };
