@@ -5,10 +5,24 @@
         "mocha": true,
         "node": true
     },
-    "globals": {},
+    "globals": {
+        "dashjs": true
+    },
     "parser": "babel-eslint",
     "parserOptions": {
         "sourceType": "module"
+    },
+    "rules": {
+        "new-cap": [
+            "error",
+            {
+                "capIsNewExceptions": [
+                    "SegmentsGetter",
+                    "EventBus",
+                    "MediaPlayerModel"
+                ]
+            }
+        ]
     },
     "settings": {},
     "extends": "streamroot"
