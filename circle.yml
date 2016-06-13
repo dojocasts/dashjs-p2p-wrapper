@@ -10,7 +10,7 @@ dependencies:
         - npm install -g grunt-cli
 
     override:
-        - rm -Rf node_modules
+        - npm prune
         - npm install
 
 test:
