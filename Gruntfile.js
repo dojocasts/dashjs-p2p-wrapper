@@ -1,5 +1,30 @@
+function browserifyHelper(src, dest, standalone, isDev) {
+    return {
+        src: src,
+        dest: dest,
+        options: {
+            transform: ['babelify', ['uglifyify', {
+                global: true,
+                mangle: true,
+                compress: {
+                    drop_console: true
+                }
+            }]],
+            plugins: [
+                ['browserify-derequire']
+            ],
+            browserifyOptions: {
+                debug: !!isDev,
+                standalone: standalone
+            },
+            watch: !!isDev,
+            keepAlive: !!isDev
+        }
+    };
+}
+
 module.exports = function(grunt) {
-    require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
+    require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -9,60 +34,33 @@ module.exports = function(grunt) {
             dashjs_build: 'cd dashjs && npm install && grunt'
         },
         browserify: {
-            dev: {
-                src: 'lib/DashjsWrapper.js',
-                dest: 'dist/dashjs-p2p-wrapper.debug.js',
-                options:  {
-                    browserifyOptions: {
-                        standalone: 'DashjsWrapper',
-                        debug: true
-                    },
-                    watch: true,
-                    keepAlive: true
-                }
-            },
-            prod: {
-                src: 'lib/DashjsWrapper.js',
-                dest: 'dist/dashjs-p2p-wrapper.js',
-                options:  {
-                    browserifyOptions: {
-                        standalone: 'DashjsWrapper',
-                        debug: false,
-                    },
-                    watch: false,
-                    keepAlive: false,
-                }
-            },
-            bundle: {
-                src: 'lib/DashjsMediaPlayerBundle.js',
-                dest: 'dist/dashjs-p2p-bundle.debug.js',
-                options:  {
-                    browserifyOptions: {
-                        standalone: 'DashjsP2PBundle',
-                        debug: true
-                    },
-                    watch: true,
-                    keepAlive: true
-                }
-            }
-        },
-        uglify: {
-            options: {
-                mangle: true,
-                compress: {
-                    drop_console: true
-                },
-                beautify: false
-            },
-            dist: {
-                files: {
-                    'dist/dashjs-p2p-wrapper.min.js': 'dist/dashjs-p2p-wrapper.js'
-                }
-            }
+            wrapper: browserifyHelper(
+                'lib/DashjsWrapper.js',
+                'dist/wrapper/dashjs-p2p-wrapper.js',
+                'DashjsWrapper',
+                false
+            ),
+            wrapper_dev: browserifyHelper(
+                    'lib/DashjsWrapper.js',
+                    'dist/wrapper/dashjs-p2p-wrapper.debug.js',
+                    'DashjsWrapper',
+                    true
+                )
+                // bundle: browserifyHelper(
+                //     'lib/DashjsBundle.js',
+                //     'dist/bundle/dashjs-p2p-bundle.js',
+                //     'Dashjs',
+                //     false
+                // ),
+                // bundle_dev: browserifyHelper(
+                //     'lib/DashjsBundle.js',
+                //     'dist/bundle/dashjs-p2p-bundle.js',
+                //     'Dashjs',
+                //     true
+                // )
         }
     });
 
     grunt.registerTask('dashjs', ['shell:dashjs_clean', 'shell:dashjs_copy', 'shell:dashjs_build']);
-
     grunt.registerTask('build', 'build dist script', ['browserify:prod', 'uglify:dist']);
 };

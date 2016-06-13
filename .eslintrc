@@ -1,0 +1,29 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true,
+        "mocha": true,
+        "node": true
+    },
+    "globals": {
+        "dashjs": true
+    },
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "rules": {
+        "new-cap": [
+            "error",
+            {
+                "capIsNewExceptions": [
+                    "SegmentsGetter",
+                    "EventBus",
+                    "MediaPlayerModel"
+                ]
+            }
+        ]
+    },
+    "settings": {},
+    "extends": "streamroot"
+}
