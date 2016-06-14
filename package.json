@@ -20,7 +20,7 @@
     "test": "mocha --require mochahook "
   },
   "dependencies": {
-    "dashjs": "git://github.com/Dash-Industry-Forum/dash.js.git#development"
+    "dashjs": "~2.1.1"
   },
   "devDependencies": {
     "babel": "^6.5.2",
