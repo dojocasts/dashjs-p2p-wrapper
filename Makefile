@@ -12,25 +12,20 @@ NODE_BIN = ./node_modules/.bin
 # default target "all"
 build: $(DIST_WRAPPER) $(DIST_BUNDLE)
 
-lintfix:
-	$(NODE_BIN)/eslint --fix lib/ test/
+lint:
+	npm run lint
+
+lint-fix:
+	npm run lint-fix
 
 clean:
-	rm -Rf dashjs
-	rm -Rf dist
+	npm run clean
 
 dashjs: $(DASHJS_SRC_FILES)
-	$(NODE_BIN)/babel ./node_modules/dashjs/externals --out-dir dashjs/externals
-	$(NODE_BIN)/babel ./node_modules/dashjs/src --out-dir dashjs/src
-	$(NODE_BIN)/babel ./node_modules/dashjs/index.js --out-file dashjs/all.js
+	npm run dashjs
 
 $(DIST_BUNDLE): $(LIB_FILES) dashjs
-	mkdir -p dist
-	mkdir -p dist/bundle
-	$(NODE_BIN)/browserify --debug -p browserify-derequire -t [babelify] -s DashjsP2PBundle lib/DashjsMediaPlayerBundle.js | $(NODE_BIN)/exorcist $(DIST_BUNDLE).map -b . > $(DIST_BUNDLE)
+	npm run bundle
 
 $(DIST_WRAPPER): $(LIB_FILES) dashjs
-	mkdir -p dist
-	mkdir -p dist/wrapper
-	$(NODE_BIN)/browserify --debug -p browserify-derequire -t [babelify] -s DashjsWrapper lib/DashjsWrapper.js | $(NODE_BIN)/exorcist $(DIST_WRAPPER).map -b . > $(DIST_WRAPPER)
-
+	npm run wrapper

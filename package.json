@@ -16,9 +16,14 @@
   "license": "MIT",
   "main": "lib/DashjsWrapper.js",
   "scripts": {
+    "clean": "rm -Rf dashjs && rm -Rf dist",
     "lint": "./node_modules/.bin/eslint lib/ test/",
+    "lint-fix": "./node_modules/.bin/eslint --fix lib/ test/",
     "test": "./node_modules/.bin/mocha --require mochahook",
-    "build": "make build"
+    "dashjs": "./scripts/dashjs",
+    "wrapper": "./scripts/dist_wrapper",
+    "bundle": "./scripts/dist_bundle",
+    "build": "npm run clean && npm run dashjs && npm run wrapper && npm run bundle" 
   },
   "dependencies": {
     "codem-isoboxer": "^0.2.2",
