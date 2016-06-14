@@ -1,4 +1,4 @@
-.PHONY: build clean
+.PHONY: build clean lintfix
 
 DASHJS_SRC_FILES = $(shell find node_modules/dashjs -type f -name "*.js")
 
@@ -11,6 +11,9 @@ NODE_BIN = ./node_modules/.bin
 
 # default target "all"
 build: $(DIST_WRAPPER) $(DIST_BUNDLE)
+
+lintfix:
+	$(NODE_BIN)/eslint --fix lib/ test/
 
 clean:
 	rm -Rf dashjs
