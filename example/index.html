@@ -14,6 +14,9 @@
         <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.9/d3.min.js"></script>
     </head>
     <body>
+
+        <a href="bundle.html">Go to bundle example</a><br><br>
+
         <div>
             <div id="mainfestSelection" />
                 <select id="mpdSelector" name="mpdSelector">
@@ -111,7 +114,7 @@
                 var liveDelay = Number(urlParams.liveDelay) || 30;
                 
                 var player = dashjs.MediaPlayer().create();
-                var dashjsWrapper = new DashjsWrapper(player, videoElement, p2pConfig, liveDelay);
+                var dashjsWrapper = new DashjsWrapper.default(player, videoElement, p2pConfig, liveDelay);
 
                 player.getDebug().setLogToBrowserConsole(urlParams.dashjsLog != "0");
                 player.initialize(videoElement, url, autoStart);

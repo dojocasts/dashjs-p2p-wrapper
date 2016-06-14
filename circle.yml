@@ -7,7 +7,6 @@ machine:
 dependencies:
     pre:
         - gem install aws-sdk
-        - npm install -g grunt-cli
         - 'echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > ~/.npmrc'
 
         # Clone tool
@@ -22,7 +21,6 @@ dependencies:
         - npm prune
 
     override:
-        - npm prune
         - npm install
     post:
         - npm ls --depth=0 > $CIRCLE_ARTIFACTS/package.lock
@@ -37,8 +35,7 @@ deployment:
         branch: /^(?!(?:dev|master)$).+$/
         commands:
             # Upload dist
-            # - grunt browserify:bundle
-            - grunt browserify:wrapper
+            - npm run build
 
             # - toolkit/add_banner.rb --file dist/bundle/$DIST_BUNDLE --deploy_env $CIRCLE_BRANCH
             - toolkit/add_banner.rb --file dist/wrapper/$DIST_WRAPPER --deploy_env $CIRCLE_BRANCH
@@ -69,8 +66,7 @@ deployment:
             - rm -rf dist
 
             # Generate dist
-            # - grunt browserify:bundle
-            - grunt browserify:wrapper
+            - npm run build
 
             # - toolkit/add_banner.rb --file dist/bundle/$DIST_BUNDLE
             #                         --deploy_env staging
@@ -140,8 +136,7 @@ deployment:
             - rm -rf dist
 
             # Generate dist
-            # - grunt browserify:bundle
-            - grunt browserify:wrapper
+            - npm run build
 
             # - toolkit/add_banner.rb --file dist/bundle/$DIST_BUNDLE
             #                         --version $(toolkit/current_version.rb --beta ${CIRCLE_BUILD_NUM})
