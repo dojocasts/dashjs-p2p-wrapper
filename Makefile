@@ -4,8 +4,8 @@ DASHJS_SRC_FILES = $(shell find node_modules/dashjs -type f -name "*.js")
 
 LIB_FILES = $(shell find lib -type f -name "*.js")
 
-DIST_WRAPPER = dist/dashjs-p2p-wrapper.debug.js
-DIST_BUNDLE = dist/dashjs-p2p-bundle.debug.js
+DIST_WRAPPER = dist/wrapper/dashjs-p2p-wrapper.js
+DIST_BUNDLE = dist/bundle/dashjs-p2p-bundle.js
 
 NODE_BIN = ./node_modules/.bin
 
@@ -26,9 +26,11 @@ dashjs: $(DASHJS_SRC_FILES)
 
 $(DIST_BUNDLE): $(LIB_FILES) dashjs
 	mkdir -p dist
+	mkdir -p dist/bundle
 	$(NODE_BIN)/browserify --debug -p browserify-derequire -t [babelify] -s DashjsP2PBundle lib/DashjsMediaPlayerBundle.js | $(NODE_BIN)/exorcist $(DIST_BUNDLE).map -b . > $(DIST_BUNDLE)
 
 $(DIST_WRAPPER): $(LIB_FILES) dashjs
 	mkdir -p dist
+	mkdir -p dist/wrapper
 	$(NODE_BIN)/browserify --debug -p browserify-derequire -t [babelify] -s DashjsWrapper lib/DashjsWrapper.js | $(NODE_BIN)/exorcist $(DIST_WRAPPER).map -b . > $(DIST_WRAPPER)
 
