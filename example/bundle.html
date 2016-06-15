@@ -113,7 +113,7 @@
                 var url = urlParams.mpd || mpdSelector.value;
                 var autoStart = true;
 
-                var player = DashjsP2PBundle.default.MediaPlayer().create(p2pConfig);
+                var player = DashjsP2PBundle.MediaPlayer().create(p2pConfig);
 
                 player.getDebug().setLogToBrowserConsole(urlParams.dashjsLog != "0");
                 player.initialize(videoElement, url, autoStart);
