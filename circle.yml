@@ -37,8 +37,13 @@ deployment:
             # Upload dist
             - npm run build
 
-            - toolkit/add_banner.rb --file dist/bundle/$DIST_BUNDLE --deploy_env $CIRCLE_BRANCH
-            - toolkit/add_banner.rb --file dist/wrapper/$DIST_WRAPPER --deploy_env $CIRCLE_BRANCH
+            - toolkit/add_banner.rb --file dist/bundle/$DIST_BUNDLE
+                                    --deploy_env $CIRCLE_BRANCH
+                                    --dependencies streamroot-p2p dashjs
+                                    --name $BUNDLE_NAME
+            - toolkit/add_banner.rb --file dist/wrapper/$DIST_WRAPPER
+                                    --deploy_env $CIRCLE_BRANCH
+                                    --dependencies streamroot-p2p
 
             - cp dist/bundle/$DIST_BUNDLE $CIRCLE_ARTIFACTS/$DIST_BUNDLE
             - cp dist/wrapper/$DIST_WRAPPER $CIRCLE_ARTIFACTS/$DIST_WRAPPER
@@ -65,45 +70,47 @@ deployment:
             # Cleanup
             - rm -rf dist
 
+            # Set version
+            - toolkit/set_version.rb --version $(toolkit/current_version.rb --beta ${CIRCLE_BUILD_NUM})
+
             # Generate dist
             - npm run build
 
             - toolkit/add_banner.rb --file dist/bundle/$DIST_BUNDLE
                                     --deploy_env staging
-                                    --version $(toolkit/current_version.rb --beta ${CIRCLE_BUILD_NUM})
+                                    --version $(toolkit/current_version.rb)
+                                    --dependencies streamroot-p2p dashjs
+                                    --name $BUNDLE_NAME
             - toolkit/add_banner.rb --file dist/wrapper/$DIST_WRAPPER
                                     --deploy_env staging
-                                    --version $(toolkit/current_version.rb --beta ${CIRCLE_BUILD_NUM})
+                                    --version $(toolkit/current_version.rb)
+                                    --dependencies streamroot-p2p
 
             - cp dist/bundle/$DIST_BUNDLE $CIRCLE_ARTIFACTS/$DIST_BUNDLE
             - cp dist/wrapper/$DIST_WRAPPER $CIRCLE_ARTIFACTS/$DIST_WRAPPER
 
-            # Build package.json
-            - toolkit/build_dist_package.rb --version $(toolkit/current_version.rb --beta ${CIRCLE_BUILD_NUM})
+            # Build package.json for the bundle
+            - toolkit/build_dist_package.rb --version $(toolkit/current_version.rb)
                                             --main ./$DIST_BUNDLE
                                             --name $BUNDLE_NAME
                                             -o dist/bundle/package.json
-            - toolkit/build_dist_package.rb --version $(toolkit/current_version.rb --beta ${CIRCLE_BUILD_NUM})
-                                            --main ./$DIST_WRAPPER
-                                            --name $WRAPPER_NAME
-                                            -o dist/wrapper/package.json
 
             # Publish
             - npm publish dist/bundle --tag beta
-            - npm publish dist/wrapper --tag beta
+            - npm publish --tag beta
 
             # Upload version
             - toolkit/upload_to_s3.rb --bucket $S3_STAGING_BUCKET
                                       --region eu-west-1
                                       --file $CIRCLE_ARTIFACTS/$DIST_BUNDLE
-                                      --destinations $CIRCLE_PROJECT_REPONAME/$(toolkit/current_version.rb --beta ${CIRCLE_BUILD_NUM})/$DIST_BUNDLE
-                                                      $CIRCLE_PROJECT_REPONAME/latest/$DIST_BUNDLE
+                                      --destinations $CIRCLE_PROJECT_REPONAME/$(toolkit/current_version.rb)/$DIST_BUNDLE
+                                                     $CIRCLE_PROJECT_REPONAME/latest/$DIST_BUNDLE
                                       --key $S3_KEY
                                       --secret $S3_SECRET
             - toolkit/upload_to_s3.rb --bucket $S3_STAGING_BUCKET
                                       --region eu-west-1
                                       --file $CIRCLE_ARTIFACTS/$DIST_WRAPPER
-                                      --destinations $CIRCLE_PROJECT_REPONAME/$(toolkit/current_version.rb --beta ${CIRCLE_BUILD_NUM})/$DIST_WRAPPER
+                                      --destinations $CIRCLE_PROJECT_REPONAME/$(toolkit/current_version.rb)/$DIST_WRAPPER
                                                      $CIRCLE_PROJECT_REPONAME/latest/$DIST_WRAPPER
                                       --key $S3_KEY
                                       --secret $S3_SECRET
@@ -139,26 +146,25 @@ deployment:
             - npm run build
 
             - toolkit/add_banner.rb --file dist/bundle/$DIST_BUNDLE
-                                    --version $(toolkit/current_version.rb --beta ${CIRCLE_BUILD_NUM})
+                                    --version $(toolkit/current_version.rb)
+                                    --dependencies streamroot-p2p hls.js
+                                    --name $BUNDLE_NAME
             - toolkit/add_banner.rb --file dist/wrapper/$DIST_WRAPPER
-                                    --version $(toolkit/current_version.rb --beta ${CIRCLE_BUILD_NUM})
+                                    --version $(toolkit/current_version.rb)
+                                    --dependencies streamroot-p2p
 
             - cp dist/bundle/$DIST_BUNDLE $CIRCLE_ARTIFACTS/$DIST_BUNDLE
             - cp dist/wrapper/$DIST_WRAPPER $CIRCLE_ARTIFACTS/$DIST_WRAPPER
 
-            # Build package.json
+            # Build package.json for the bundle
             - toolkit/build_dist_package.rb --version $(toolkit/current_version.rb)
-                                             --main ./$DIST_BUNDLE
-                                             --name $BUNDLE_NAME
-                                             -o dist/bundle/package.json
-            - toolkit/build_dist_package.rb --version $(toolkit/current_version.rb)
-                                            --main ./$DIST_WRAPPER
-                                            --name $WRAPPER_NAME
-                                            -o dist/wrapper/package.json
+                                            --main ./$DIST_BUNDLE
+                                            --name $BUNDLE_NAME
+                                            -o dist/bundle/package.json
 
             # Publish
             - npm publish dist/bundle
-            - npm publish dist/wrapper
+            - npm publish
 
             # Upload version
             - toolkit/upload_to_s3.rb --bucket $S3_PREPROD_BUCKET
