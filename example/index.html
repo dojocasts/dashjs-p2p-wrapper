@@ -114,7 +114,7 @@
                 var liveDelay = Number(urlParams.liveDelay) || 30;
 
                 var player = dashjs.MediaPlayer().create();
-                var dashjsWrapper = new DashjsWrapper(player, videoElement, p2pConfig, liveDelay);
+                var dashjsWrapper = new DashjsWrapper(player, p2pConfig, liveDelay);
 
                 player.getDebug().setLogToBrowserConsole(urlParams.dashjsLog != "0");
                 player.initialize(videoElement, url, autoStart);
