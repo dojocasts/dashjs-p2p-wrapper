@@ -7,7 +7,7 @@ function browserifyHelper(src, dest, standalone, isDev) {
                 global: true,
                 mangle: true,
                 compress: {
-                    drop_console: true
+                    drop_console: !isDev
                 }
             }]],
             plugins: [
