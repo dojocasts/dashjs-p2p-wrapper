@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+NODE_BIN = "./node_modules/.bin"
+
+DIST_BUNDLE = "dist/bundle/dashjs-p2p-bundle.js"
+
+`mkdir -p dist`
+`mkdir -p dist/bundle`
+system("#{NODE_BIN}/browserify --debug -p browserify-derequire -t [babelify] -s DashjsP2PBundle lib/DashjsMediaPlayerBundle.js | #{NODE_BIN}/exorcist #{DIST_BUNDLE}.map -b . > #{DIST_BUNDLE}")
