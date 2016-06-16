@@ -23,12 +23,12 @@
     "dashjs": "./scripts/dashjs",
     "wrapper": "./scripts/dist_wrapper",
     "bundle": "./scripts/dist_bundle",
-    "build": "npm run clean && npm run dashjs && npm run wrapper && npm run bundle" 
+    "build": "npm run clean && npm run dashjs && npm run wrapper && npm run bundle"
   },
   "dependencies": {
     "codem-isoboxer": "^0.2.2",
     "dashjs": "2.1.1",
-    "streamroot-p2p": "^3.1.0-beta140"
+    "streamroot-p2p": "^4.0.0"
   },
   "devDependencies": {
     "babel": "^6.3.26",
