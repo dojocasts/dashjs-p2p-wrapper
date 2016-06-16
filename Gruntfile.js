@@ -7,7 +7,8 @@ function browserifyHelper(src, dest, standalone, isDev) {
                 global: true,
                 mangle: true,
                 compress: {
-                    drop_console: !isDev
+                    drop_console: !isDev,
+                    drop_debugger: !isDev
                 }
             }]],
             plugins: [
