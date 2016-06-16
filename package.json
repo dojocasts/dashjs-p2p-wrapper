@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "codem-isoboxer": "^0.2.2",
-    "dashjs": "~2.1.1",
+    "dashjs": "2.1.1",
     "streamroot-p2p": "^4.0.0"
   },
   "devDependencies": {
