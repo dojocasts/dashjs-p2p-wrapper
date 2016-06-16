@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+NODE_BIN = "./node_modules/.bin"
+
+system("#{NODE_BIN}/babel ./node_modules/dashjs/externals --out-dir dashjs/externals")
+system("#{NODE_BIN}/babel ./node_modules/dashjs/src --out-dir dashjs/src")
+system("#{NODE_BIN}/babel ./node_modules/dashjs/index.js --out-file dashjs/all.js")
