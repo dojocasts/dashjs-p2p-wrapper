@@ -99,7 +99,7 @@
                 };
 
                 var liveDelay = Number(urlParams.liveDelay) || 30;
-                var dashjsWrapper = new DashjsWrapper(player, videoElement, p2pConfig, liveDelay);
+                var dashjsWrapper = new DashjsWrapper(player, p2pConfig, liveDelay);
 
                 var url = urlParams.mpd || mpdSelector.value;
                 mpdSelector.value = url;
