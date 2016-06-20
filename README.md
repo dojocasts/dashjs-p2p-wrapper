@@ -65,7 +65,6 @@ Or simply use the MediaPlayer bundle factory provided with `dashjs-p2p-bundle` (
                     debug: true
                 };
 
-                var liveDelay = 30;
                 var player = DashjsP2PBundle.MediaPlayer().create(p2pConfig);
 
                 var videoElementId = "videoPlayer";
