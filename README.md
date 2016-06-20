@@ -78,8 +78,6 @@ Or simply use the MediaPlayer bundle factory provided with `dashjs-p2p-bundle` (
 
 1. To see some p2p traffic open several browser tabs/windows playing the same manifest (so there will be peers to exchange p2p traffic).
 
-You can check an online example [here](http://streamroot.github.io/dashjs-p2p-wrapper/demo/demo.html)
-
 ## Run local example page
 
 Make sure you did at least once before:
