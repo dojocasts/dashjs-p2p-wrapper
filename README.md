@@ -37,9 +37,6 @@ or
 
       <script>
           (function() {
-              var videoElementId = "videoPlayer";
-              var videoElement = document.getElementById(videoElementId);
-
               var player = dashjs.MediaPlayer().create();
 
               var p2pConfig = {
@@ -50,6 +47,8 @@ or
               var liveDelay = 30; //TODO: hardcoded value, will be fixed in future relases
               var dashjsWrapper = new DashjsWrapper(player, p2pConfig, liveDelay);
 
+              var videoElementId = "videoPlayer";
+              var videoElement = document.getElementById(videoElementId);
               var manifestURL = "example.mpd";
               var autoStart = true;
               player.initialize(videoElement, manifestURL, autoStart);
@@ -61,20 +60,18 @@ Or simply use the MediaPlayer bundle factory provided with `dashjs-p2p-bundle` (
 
 ```javascript
 
-                var videoElementId = "videoPlayer";
-                var videoElement = document.getElementById(videoElementId);
-
                 var p2pConfig = {
                     streamrootKey: YOUR_STREAMROOT_KEY_HERE,
                     debug: true
                 };
 
                 var liveDelay = 30;
-                var url = "example.mpd";
-                var autoStart = true;
-                
                 var player = DashjsP2PBundle.MediaPlayer().create(p2pConfig);
 
+                var videoElementId = "videoPlayer";
+                var videoElement = document.getElementById(videoElementId);
+                var manifestURL = "example.mpd";
+                var autoStart = true;
                 player.initialize(videoElement, url, autoStart);
 ```
 
