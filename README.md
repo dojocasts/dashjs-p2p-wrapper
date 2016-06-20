@@ -66,7 +66,7 @@ Or simply use the MediaPlayer bundle factory provided with `dashjs-p2p-bundle` (
 
                 var p2pConfig = {
                     videoElement: videoElement,
-                    streamrootKey: "ry-tguzre2t",
+                    streamrootKey: YOUR_STREAMROOT_KEY_HERE,
                     debug: true
                 };
 
