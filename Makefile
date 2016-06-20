@@ -1,4 +1,4 @@
-.PHONY: build clean lintfix
+.PHONY: build clean lint lint-fix wrapper bundle
 
 DASHJS_SRC_FILES = $(shell find node_modules/dashjs -type f -name "*.js")
 
@@ -10,7 +10,11 @@ DIST_BUNDLE = dist/bundle/dashjs-p2p-bundle.js
 NODE_BIN = ./node_modules/.bin
 
 # default target "all"
-build: $(DIST_WRAPPER) $(DIST_BUNDLE)
+build: wrapper bundle
+
+wrapper: $(DIST_WRAPPER)
+
+bundle: $(DIST_BUNDLE)
 
 lint:
 	npm run lint
