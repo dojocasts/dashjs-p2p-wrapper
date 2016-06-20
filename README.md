@@ -1,29 +1,32 @@
 # dashjs-p2p-wrapper
 
-Streamroot p2p module wrapper for dash.js. It enables [Streamroot's P2P](http://streamroot.io) solution for [dash.js](https://github.com/Dash-Industry-Forum/dash.js).
+Dash.js P2P wrapper. It enables [Streamroot's P2P](http://streamroot.io) solution for [dash.js](https://github.com/Dash-Industry-Forum/dash.js).
+
+ **The bundled version of dash.js is v2.1+**
 
 ## Quick start
 
-1. Clone this repo `git clone https://github.com/streamroot/dashjs-p2p-wrapper.git`
+1. Clone this repo: `git clone https://github.com/streamroot/dashjs-p2p-wrapper.git`
 1. Install library dependencies `npm install`
-1. Build the library `grunt build`. The result will be here `dist/dashjs-wrapper.js`.
-1. Include `streamroot-p2p` lib, `dashjs-wrapper.js` and `dash.js` in your web page:
-
-  **The supported version of dash.js is v2.1+**
+1. Build the library `npm run build`. The results will be in the destination folders: `dist/wrapper` and `dist/bundle` 
+1. Include either the bundle or the wrapper distro in your app and use it based on the respective examples.
 
   ```html
   <head>
-    <!-- path to dash.js build here -->
-    <script src="http://cdn.dashjs.org/latest/dash.all.min.js"></script>
-
-    <!-- Streamroot p2p lib -->
-    <script src="http://lib.streamroot.io/3/p2p.js"></script>
-
-    <!-- path to streamroot-dash build aka Streamroot p2p dash.js wrapper -->
-    <script src="dashjs-wrapper.js"></script>
+    <!-- path to dashjs-p2p-wrapper build -->
+    <script src="dashjs-p2p-wrapper.js"></script>
   </head>
   ```
-1. Create dash.js MediaPlayer instance and initialize the wrapper
+or
+
+  ```html
+  <head>
+    <!-- path to dashjs-p2p-bundle build -->
+    <script src="dashjs-p2p-bundle.js"></script>
+  </head>
+  ```
+
+1. Create dash.js MediaPlayer instance and initialize the wrapper by yourself (see `example/index.html`):
 
   ```javascript
   <body>
@@ -47,16 +50,53 @@ Streamroot p2p module wrapper for dash.js. It enables [Streamroot's P2P](http://
               var liveDelay = 30; //TODO: hardcoded value, will be fixed in future relases
               var dashjsWrapper = new DashjsWrapper(player, videoElement, p2pConfig, liveDelay);
 
-              var manifestURL = "put MPEG-DASH manifest url here";
+              var manifestURL = "example.mpd";
               var autoStart = true;
               player.initialize(videoElement, manifestURL, autoStart);
           })();
       </script>
   </body>
   ```
+Or simply use the MediaPlayer bundle factory provided with `dashjs-p2p-bundle` (see (see `example/bundle.html`):
+
+```javascript
+
+                var videoElementId = "videoPlayer";
+                var videoElement = document.getElementById(videoElementId);
+
+                var p2pConfig = {
+                    videoElement: videoElement,
+                    streamrootKey: "ry-tguzre2t",
+                    debug: true
+                };
+
+                var liveDelay = Number(urlParams.liveDelay) || 30;
+                var url = "example.mpd";
+                var autoStart = true;
+                
+                var player = DashjsP2PBundle.MediaPlayer().create(p2pConfig);
+
+                player.initialize(videoElement, url, autoStart);
+```
 
 1. Specify your Streamroot key in the p2pConfig object. If you don't have it, go to [Streamroot's dashboard](http://dashboard.streamroot.io/) and sign up. It's free.
 
 1. To see some p2p traffic open several browser tabs/windows playing the same manifest (so there will be peers to exchange p2p traffic).
 
-You can check an example [here](http://streamroot.github.io/dashjs-p2p-wrapper/demo/demo.html)
+You can check an online example [here](http://streamroot.github.io/dashjs-p2p-wrapper/demo/demo.html)
+
+## Run local example page
+
+Make sure you did at least once before: 
+```
+npm run build
+```
+
+Build only the wrapper and bundle (no need to rebuild dash.js every time):
+```
+npm run wrapper && npm run bundle
+```
+
+Start a local server like `http-server` or `node-static` in the project root, on port 8080 if you like.
+
+Now visit http://localhost:8080/example  

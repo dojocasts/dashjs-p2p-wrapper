@@ -20,10 +20,10 @@
         <div>
             <div id="mainfestSelection" />
                 <select id="mpdSelector" name="mpdSelector">
-                    <option value="http://akamai.streamroot.edgesuite.net/vodorigin/sintel.mp4/manifest.mpd">Sintel VOD (segment timeline | 1 video & 1 audio)</option>
-                    <option value="http://vm2.dashif.org/livesim/testpic_2s/Manifest.mpd">Live 2s seg(number template | 1 video & 1 audio)</option>
-                    <option value="http://media.streamroot.io/dash/examples/snow15/snowboard1_720p_dash.mpd">Snowboard 1:30(segment base | 3 video & 1 audio)</option>
-                    <option value="http://dash.edgesuite.net/envivio/Envivio-dash2/manifest.mpd">Envivio 3:13(number template | 9 video & 1 audio)</option>
+                    <option value="http://wowza.streamroot.io/vodOriginSite/tears_of_steel720p.mp4/manifest.mpd">ToS (VoD, 1 video)</option>
+                    <option value="http://wowza.streamroot.io/liveorigin/stream4/manifest.mpd">ToS (Live DVR, 1 video)</option>
+                    <option value="http://wowza.streamroot.io/liveorigin/Sample-live.smil/manifest.mpd">Sintel (Live DVR, 3 video)</option>
+                    <option value="http://wowza.streamroot.io/vodOriginSite/Sample-vod.smil/manifest.mpd">Sintel (VoD, 3 video)</option>
                 </select>
             </div>
             <div id="playbackStats">
@@ -112,9 +112,9 @@
                 var autoStart = true;
 
                 var liveDelay = Number(urlParams.liveDelay) || 30;
-                
+
                 var player = dashjs.MediaPlayer().create();
-                var dashjsWrapper = new DashjsWrapper(player, videoElement, p2pConfig, liveDelay);
+                var dashjsWrapper = new DashjsWrapper.default(player, videoElement, p2pConfig, liveDelay);
 
                 player.getDebug().setLogToBrowserConsole(urlParams.dashjsLog != "0");
                 player.initialize(videoElement, url, autoStart);
