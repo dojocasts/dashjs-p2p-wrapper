@@ -147,7 +147,7 @@ deployment:
 
             - toolkit/add_banner.rb --file dist/bundle/$DIST_BUNDLE
                                     --version $(toolkit/current_version.rb)
-                                    --dependencies streamroot-p2p hls.js
+                                    --dependencies streamroot-p2p dashjs
                                     --name $BUNDLE_NAME
             - toolkit/add_banner.rb --file dist/wrapper/$DIST_WRAPPER
                                     --version $(toolkit/current_version.rb)
