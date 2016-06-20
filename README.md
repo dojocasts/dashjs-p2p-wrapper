@@ -70,7 +70,7 @@ Or simply use the MediaPlayer bundle factory provided with `dashjs-p2p-bundle` (
                     debug: true
                 };
 
-                var liveDelay = Number(urlParams.liveDelay) || 30;
+                var liveDelay = 30;
                 var url = "example.mpd";
                 var autoStart = true;
                 
