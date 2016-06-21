@@ -8,7 +8,7 @@ Dash.js P2P wrapper. It enables [Streamroot's P2P](http://streamroot.io) solutio
 
 1. Clone this repo: `git clone https://github.com/streamroot/dashjs-p2p-wrapper.git`
 1. Install library dependencies `npm install`
-1. Build the library `npm run build`. The results will be in the destination folders: `dist/wrapper` and `dist/bundle` 
+1. Build the library `npm run build`. The results will be in the destination folders: `dist/wrapper` and `dist/bundle`
 1. Include either the bundle or the wrapper distro in your app and use it based on the respective examples.
 
   ```html
@@ -37,9 +37,6 @@ or
 
       <script>
           (function() {
-              var videoElementId = "videoPlayer";
-              var videoElement = document.getElementById(videoElementId);
-
               var player = dashjs.MediaPlayer().create();
 
               var p2pConfig = {
@@ -48,8 +45,10 @@ or
               };
 
               var liveDelay = 30; //TODO: hardcoded value, will be fixed in future relases
-              var dashjsWrapper = new DashjsWrapper(player, videoElement, p2pConfig, liveDelay);
+              var dashjsWrapper = new DashjsWrapper(player, p2pConfig, liveDelay);
 
+              var videoElementId = "videoPlayer";
+              var videoElement = document.getElementById(videoElementId);
               var manifestURL = "example.mpd";
               var autoStart = true;
               player.initialize(videoElement, manifestURL, autoStart);
@@ -61,21 +60,17 @@ Or simply use the MediaPlayer bundle factory provided with `dashjs-p2p-bundle` (
 
 ```javascript
 
-                var videoElementId = "videoPlayer";
-                var videoElement = document.getElementById(videoElementId);
-
                 var p2pConfig = {
-                    videoElement: videoElement,
-                    streamrootKey: "ry-tguzre2t",
+                    streamrootKey: YOUR_STREAMROOT_KEY_HERE,
                     debug: true
                 };
 
-                var liveDelay = Number(urlParams.liveDelay) || 30;
-                var url = "example.mpd";
-                var autoStart = true;
-                
                 var player = DashjsP2PBundle.MediaPlayer().create(p2pConfig);
 
+                var videoElementId = "videoPlayer";
+                var videoElement = document.getElementById(videoElementId);
+                var manifestURL = "example.mpd";
+                var autoStart = true;
                 player.initialize(videoElement, url, autoStart);
 ```
 
@@ -83,11 +78,9 @@ Or simply use the MediaPlayer bundle factory provided with `dashjs-p2p-bundle` (
 
 1. To see some p2p traffic open several browser tabs/windows playing the same manifest (so there will be peers to exchange p2p traffic).
 
-You can check an online example [here](http://streamroot.github.io/dashjs-p2p-wrapper/demo/demo.html)
-
 ## Run local example page
 
-Make sure you did at least once before: 
+Make sure you did at least once before:
 ```
 npm run build
 ```
@@ -99,4 +92,4 @@ npm run wrapper && npm run bundle
 
 Start a local server like `http-server` or `node-static` in the project root, on port 8080 if you like.
 
-Now visit http://localhost:8080/example  
+Now visit http://localhost:8080/example
