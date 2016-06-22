@@ -74,7 +74,7 @@ Or simply use the MediaPlayer bundle factory provided with `dashjs-p2p-bundle` (
                 player.initialize(videoElement, url, autoStart);
 ```
 
-1. Specify your Streamroot key in the p2pConfig object. If you don't have it, go to [Streamroot's dashboard](http://dashboard.streamroot.io/) and sign up. It's free.
+1. Specify your Streamroot key in the p2pConfig object. If you don't have it, go to [Streamroot's dashboard](http://dashboard.streamroot.io/) and sign up. It's free. You can check other p2pConfig options in the [documentation](https://streamroot.readme.io/docs/p2p-config).
 
 1. To see some p2p traffic open several browser tabs/windows playing the same manifest (so there will be peers to exchange p2p traffic).
 
