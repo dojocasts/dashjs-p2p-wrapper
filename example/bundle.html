@@ -99,20 +99,19 @@
                     player.setQualityFor('video', document.getElementById("presentationId").value);
                 };
 
-                var urlParams = getURLParams(document.location.search);
-
-                var videoElementId = "videoPlayer";
-                var videoElement = document.getElementById(videoElementId);
-
                 var p2pConfig = {
                     streamrootKey: "ry-tguzre2t",
                     debug: true
                 };
-                var url = urlParams.mpd || mpdSelector.value;
-                var autoStart = true;
                 var player = DashjsP2PBundle.MediaPlayer().create(p2pConfig);
 
+                var urlParams = getURLParams(document.location.search);
                 player.getDebug().setLogToBrowserConsole(urlParams.dashjsLog != "0");
+
+                var videoElementId = "videoPlayer";
+                var videoElement = document.getElementById(videoElementId);
+                var url = urlParams.mpd || mpdSelector.value;
+                var autoStart = true;
                 player.initialize(videoElement, url, autoStart);
 
                 mpdSelector.value = url;
