@@ -105,15 +105,11 @@
                 var videoElement = document.getElementById(videoElementId);
 
                 var p2pConfig = {
-                    videoElement: videoElement,
                     streamrootKey: "ry-tguzre2t",
                     debug: true
                 };
-
-                var liveDelay = Number(urlParams.liveDelay) || 30;
                 var url = urlParams.mpd || mpdSelector.value;
                 var autoStart = true;
-
                 var player = DashjsP2PBundle.MediaPlayer().create(p2pConfig);
 
                 player.getDebug().setLogToBrowserConsole(urlParams.dashjsLog != "0");
