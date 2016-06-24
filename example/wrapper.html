@@ -1,5 +1,6 @@
 <html>
     <head>
+        <title>Wrapper example</title>
 
         <!-- streamroot-dash wrapper -->
         <script src="../node_modules/dashjs/dist/dash.all.debug.js"></script>
@@ -101,23 +102,20 @@
 
                 var urlParams = getURLParams(document.location.search);
 
-                var videoElementId = "videoPlayer";
-                var videoElement = document.getElementById(videoElementId);
-
+                var player = dashjs.MediaPlayer().create();
                 var p2pConfig = {
                     streamrootKey: "ry-tguzre2t",
                     debug: true
                 };
-
-                var url = urlParams.mpd || mpdSelector.value;
-                var autoStart = true;
-
                 var liveDelay = Number(urlParams.liveDelay) || 30;
-
-                var player = dashjs.MediaPlayer().create();
                 var dashjsWrapper = new DashjsWrapper(player, p2pConfig, liveDelay);
 
                 player.getDebug().setLogToBrowserConsole(urlParams.dashjsLog != "0");
+
+                var videoElementId = "videoPlayer";
+                var videoElement = document.getElementById(videoElementId);
+                var url = urlParams.mpd || mpdSelector.value;
+                var autoStart = true;
                 player.initialize(videoElement, url, autoStart);
 
                 mpdSelector.value = url;

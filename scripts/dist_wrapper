@@ -6,4 +6,4 @@ DIST_WRAPPER = "dist/wrapper/dashjs-p2p-wrapper.js"
 
 `mkdir -p dist`
 `mkdir -p dist/wrapper`
-system("#{NODE_BIN}/browserify --debug -p browserify-derequire -t [babelify] -s DashjsWrapper lib/DashjsWrapper.js | #{NODE_BIN}/exorcist #{DIST_WRAPPER}.map -b . > #{DIST_WRAPPER}")
+system("#{NODE_BIN}/browserify -p browserify-derequire -t [babelify] -s DashjsWrapper lib/DashjsWrapper.js | uglifyjs -m --compress warnings=false,drop_console=true > #{DIST_WRAPPER}")
