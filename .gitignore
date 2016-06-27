@@ -4,5 +4,6 @@ manifests/
 bridge/
 toolkit/
 .ruby-version
+.gitattributes
 dashjs/
 

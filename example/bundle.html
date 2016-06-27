@@ -1,7 +1,8 @@
 <html>
     <head>
+        <title>Bundle example</title>
 
-        <!-- streamroot-dash wrapper -->
+        <!-- streamroot-dash bundle -->
         <script src="../dist/bundle/dashjs-p2p-bundle.js"></script>
 
         <!-- p2p graphics and peer stats -->
@@ -15,7 +16,7 @@
     </head>
     <body>
 
-        <a href="index.html">Go to wrapper example</a><br><br>
+        <a href="wrapper.html">Go to wrapper example</a><br><br>
 
         <div>
             <div id="mainfestSelection" />
@@ -98,24 +99,19 @@
                     player.setQualityFor('video', document.getElementById("presentationId").value);
                 };
 
-                var urlParams = getURLParams(document.location.search);
-
-                var videoElementId = "videoPlayer";
-                var videoElement = document.getElementById(videoElementId);
-
                 var p2pConfig = {
-                    videoElement: videoElement,
                     streamrootKey: "ry-tguzre2t",
                     debug: true
                 };
-
-                var liveDelay = Number(urlParams.liveDelay) || 30;
-                var url = urlParams.mpd || mpdSelector.value;
-                var autoStart = true;
-
                 var player = DashjsP2PBundle.MediaPlayer().create(p2pConfig);
 
+                var urlParams = getURLParams(document.location.search);
                 player.getDebug().setLogToBrowserConsole(urlParams.dashjsLog != "0");
+
+                var videoElementId = "videoPlayer";
+                var videoElement = document.getElementById(videoElementId);
+                var url = urlParams.mpd || mpdSelector.value;
+                var autoStart = true;
                 player.initialize(videoElement, url, autoStart);
 
                 mpdSelector.value = url;
