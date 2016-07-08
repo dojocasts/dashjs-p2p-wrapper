@@ -184,8 +184,8 @@ deployment:
                                             -o dist/wrapper/package.json
 
             # Publish
-            - npm publish dist/bundle
-            - npm publish dist/wrapper
+            - npm publish dist/bundle --tag rc
+            - npm publish dist/wrapper --tag rc
 
             # Upload version
             - toolkit/upload_to_s3.rb --bucket $S3_PREPROD_BUCKET
