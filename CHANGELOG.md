@@ -6,6 +6,7 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+- Pass media element to peer agent
 
 ## [1.4.0] - 2016-07-25
 ### Fixed
@@ -14,4 +15,3 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [1.3.0] - 2016-07-11
 ### Changed
 - Publish npm dist as rc when comming from master
-
