@@ -25,6 +25,7 @@
     "wrapper": "./scripts/dist_wrapper",
     "wrapper_dev": "./scripts/dist_wrapper_dev",
     "bundle": "./scripts/dist_bundle",
+    "bundle_dev": "./scripts/dist_bundle_dev",
     "build": "npm run clean && npm run dashjs && npm run wrapper && npm run bundle"
   },
   "dependencies": {
