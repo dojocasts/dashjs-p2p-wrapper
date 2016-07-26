@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+
+## [1.4.2] - 2016-07-26
 - Pass media element to peer agent
 
 ## [1.4.0] - 2016-07-25
