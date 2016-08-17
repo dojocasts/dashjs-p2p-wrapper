@@ -10,6 +10,7 @@ DASHJS_WRAPPER = File.join "lib", "DashjsWrapper.js"
 FileUtils.mkdir_p File.join("dist", "wrapper")
 
 def command(cmd)
+  cmd.gsub! "/", "\\" if Gem.win_platform?
   puts "\e[36m#{cmd}\e[0m"
   puts %x(#{cmd})
 end

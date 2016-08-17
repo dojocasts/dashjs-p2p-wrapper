@@ -12,6 +12,7 @@ NM_DASHJS_INDEX = File.join ".", "node_modules", "dashjs", "index.js"
 DASHJS_INDEX = File.join "dashjs", "all.js"
 
 def command(cmd)
+  cmd.gsub! "/", "\\" if Gem.win_platform?
   puts "\e[36m#{cmd}\e[0m"
   puts %x(#{cmd})
 end
