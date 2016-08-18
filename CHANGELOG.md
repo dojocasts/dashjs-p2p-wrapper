@@ -7,6 +7,11 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ## [Unreleased]
 
+## [1.5.1] - 2016-08-18
+### Fixed
+- HTTPRequest import
+- dist_wrapper.rb script
+
 ## [1.5.0] - 2016-08-18
 ### Updated
 - dashjs version to 2.2.0

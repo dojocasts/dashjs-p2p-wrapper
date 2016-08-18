@@ -17,5 +17,5 @@ def command(cmd)
   puts %x(#{cmd})
 end
 
-command "#{BROWSERIFY} -p browserify-derequire -t [babelify] -s DashjsP2PWrapper #{DASHJS_WRAPPER} | #{UGLIFYJS} -m --compress warnings=false,drop_console=true > #{DIST_WRAPPER}"
+command "#{BROWSERIFY} -p browserify-derequire -t [babelify] -s DashjsWrapper #{DASHJS_WRAPPER} | #{UGLIFYJS} -m --compress warnings=false,drop_console=true > #{DIST_WRAPPER}"
 
