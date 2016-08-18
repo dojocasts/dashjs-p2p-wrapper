@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+
+## [1.5.1] - 2016-08-18
 ### Fixed
 - HTTPRequest import
 - dist_wrapper.rb script
