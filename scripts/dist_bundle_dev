@@ -1,9 +1,0 @@
-#!/usr/bin/env ruby
-
-NODE_BIN = "./node_modules/.bin"
-
-DIST_BUNDLE_DEV = "dist/bundle/dashjs-p2p-bundle.debug.js"
-
-`mkdir -p dist`
-`mkdir -p dist/bundle`
-system("#{NODE_BIN}/watchify -o #{DIST_BUNDLE_DEV} --debug -v -p browserify-derequire -t [babelify] -s DashjsP2PBundle lib/DashjsBundle.js")

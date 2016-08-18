@@ -4,10 +4,16 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This changelog's template come from [keepachangelog.com](http://keepachangelog.com/). When editing this document, please follow the convention specified there.
 
 ## [Dev]
+### Updated
+- dashjs version to 2.2.0
+
+### Fixed
+- scripts on Windows
 
 ## [Unreleased]
 
 ## [1.4.2] - 2016-07-26
+### Changed
 - Pass media element to peer agent
 
 ## [1.4.0] - 2016-07-25

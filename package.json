@@ -1,7 +1,7 @@
 {
   "name": "streamroot-dashjs-p2p-wrapper",
   "description": "Streamroot P2P wrapper for the dash.js media player",
-  "version": "1.4.5",
+  "version": "1.5.0-beta.0",
   "private": true,
   "author": {
     "name": "Streamroot",
@@ -17,20 +17,20 @@
   "license": "MIT",
   "main": "lib/DashjsWrapper.js",
   "scripts": {
-    "clean": "rm -Rf dashjs && rm -Rf dist",
+    "clean": "./scripts/clean.rb",
     "lint": "./node_modules/.bin/eslint lib/ test/",
     "lint-fix": "./node_modules/.bin/eslint --fix lib/ test/",
     "test": "./node_modules/.bin/mocha --require mochahook",
-    "dashjs": "./scripts/dashjs",
-    "wrapper": "./scripts/dist_wrapper",
-    "wrapper_dev": "./scripts/dist_wrapper_dev",
-    "bundle": "./scripts/dist_bundle",
-    "bundle_dev": "./scripts/dist_bundle_dev",
+    "dashjs": "./scripts/dashjs.rb",
+    "wrapper": "./scripts/dist_wrapper.rb",
+    "wrapper_dev": "./scripts/dist_wrapper_dev.rb",
+    "bundle": "./scripts/dist_bundle.rb",
+    "bundle_dev": "./scripts/dist_bundle_dev.rb",
     "build": "npm run clean && npm run dashjs && npm run wrapper && npm run bundle"
   },
   "dependencies": {
     "codem-isoboxer": "^0.2.2",
-    "dashjs": "2.1.1",
+    "dashjs": "2.2.0",
     "streamroot-p2p": "^4.0.0"
   },
   "devDependencies": {
