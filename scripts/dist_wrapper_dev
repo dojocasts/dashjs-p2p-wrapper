@@ -1,9 +1,0 @@
-#!/usr/bin/env ruby
-
-NODE_BIN = "./node_modules/.bin"
-
-DIST_WRAPPER_DEV = "dist/wrapper/dashjs-p2p-wrapper.debug.js"
-
-`mkdir -p dist`
-`mkdir -p dist/wrapper`
-system("#{NODE_BIN}/watchify -o #{DIST_WRAPPER_DEV} --debug -v -p browserify-derequire -t [babelify] -s DashjsWrapper lib/DashjsWrapper.js")
