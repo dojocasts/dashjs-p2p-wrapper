@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+### Fixed
+- HTTPRequest import
 
 ## [1.5.0] - 2016-08-18
 ### Updated
