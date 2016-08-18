@@ -7,6 +7,9 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ### Updated
 - dashjs version to 2.2.0
 
+### Fixed
+- scripts on Windows
+
 ## [Unreleased]
 
 ## [1.4.2] - 2016-07-26
