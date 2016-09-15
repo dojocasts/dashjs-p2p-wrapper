@@ -118,6 +118,12 @@
 
                 var videoElementId = "videoPlayer";
                 var videoElement = document.getElementById(videoElementId);
+
+                videoElement.addEventListener('error', function(ev) {
+                    console.log(ev);
+                    console.log(videoElement.error);
+                });
+
                 var url = urlParams.mpd || mpdSelector.value;
                 var autoStart = true;
                 player.initialize(videoElement, url, autoStart);
