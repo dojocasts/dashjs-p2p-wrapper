@@ -29,8 +29,8 @@
     "build": "npm run clean && npm run dashjs && npm run wrapper && npm run bundle"
   },
   "dependencies": {
-    "codem-isoboxer": "^0.2.2",
-    "dashjs": "2.2.0",
+    "codem-isoboxer": "0.2.2",
+    "dashjs": "2.3.0",
     "streamroot-p2p": "^4.0.0"
   },
   "devDependencies": {
