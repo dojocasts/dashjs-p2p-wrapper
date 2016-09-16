@@ -2,9 +2,16 @@
     <head>
         <title>Wrapper example</title>
 
+        <script type="text/javascript">
+            window._MOBILE_ = false;
+            window._ENVIRONMENT_ = 'development';
+            window._DEBUG_ = true;
+            window._TEST_ = false;
+        </script>
+
         <!-- streamroot-dash wrapper -->
         <script src="../node_modules/dashjs/dist/dash.all.debug.js"></script>
-        <script src="../dist/wrapper/dashjs-p2p-wrapper.js"></script>
+        <script src="../dist/wrapper/dashjs-p2p-wrapper.debug.js"></script>
 
         <!-- p2p graphics and peer stats -->
         <script src="http://cdn.streamroot.io/2/scripts/peerStat.js"></script>
@@ -22,6 +29,7 @@
         <div>
             <div id="mainfestSelection" />
                 <select id="mpdSelector" name="mpdSelector">
+                    <option value="http://wowza-test.streamroot.io/liveOrigin/sintel-live.smil/manifest.mpd">Streamroot live test stream</option>
                     <option value="http://wowza.streamroot.io/vodOriginSite/tears_of_steel720p.mp4/manifest.mpd">ToS (VoD, 1 video)</option>
                     <option value="http://wowza.streamroot.io/liveorigin/stream4/manifest.mpd">ToS (Live DVR, 1 video)</option>
                     <option value="http://wowza.streamroot.io/liveorigin/Sample-live.smil/manifest.mpd">Sintel (Live DVR, 3 video)</option>
@@ -114,6 +122,12 @@
 
                 var videoElementId = "videoPlayer";
                 var videoElement = document.getElementById(videoElementId);
+
+                videoElement.addEventListener('error', function(ev) {
+                    console.log(ev);
+                    console.log(videoElement.error);
+                });
+
                 var url = urlParams.mpd || mpdSelector.value;
                 var autoStart = true;
                 player.initialize(videoElement, url, autoStart);
