@@ -56,82 +56,22 @@
         <div id="peerStat"/>
 
         <script>
-            (function() {
+            function createPlayer(videoElement, url, params, p2pConfig) {
 
-                var updateIntervalId;
+                var autoStart = parseURLOption(params, "autoStart", true);
+                var enableBOLA = parseURLOption(params, "enableBOLA", false);
 
-                function startUpdate() {
-                    updateIntervalId = setInterval(update, 1000);
-                }
-
-                function stopUpdate() {
-                    clearInterval(updateIntervalId);
-                }
-
-                function update() {
-                    if (player.isReady()) {
-                        document.getElementById("liveDelay").innerHTML = "liveDelay=" + liveDelay;
-                        document.getElementById("bufferLength").innerHTML = "bufferLength=" + player.getBufferLength();
-                    }
-                }
-
-                function getURLParams(url) {
-                    if (!url) {
-                        return {};
-                    }
-
-                    var search = url.substring(1); //removing '?'
-                    var paramValueList = search.split("&");
-                    var params = {};
-                    paramValueList.forEach(function(entry){
-                        var paramValue = entry.split("=");
-                        if (entry) {
-                            params[paramValue[0]] = decodeURIComponent(paramValue[1]);
-                        }
-                    });
-
-                    return params;
-                }
-
-                // manifest selector handler
-                document.getElementById("mpdSelector").onchange = function() {
-                    stopUpdate();
-                    var mpdUrl = document.getElementById("mpdSelector").value;
-                    player.attachSource(mpdUrl);
-                    startUpdate();
-                };
-
-                // quality switch button click handler
-                document.getElementById("videoQualitySwitcher").onclick = function() {
-                    player.setAutoSwitchQualityFor('video', false);
-                    player.setQualityFor('video', document.getElementById("presentationId").value);
-                };
-
-                var p2pConfig = {
-                    streamrootKey: "ry-tguzre2t",
-                    debug: true
-                };
                 var player = DashjsP2PBundle.MediaPlayer().create(p2pConfig);
 
-                var urlParams = getURLParams(document.location.search);
-                player.getDebug().setLogToBrowserConsole(urlParams.dashjsLog != "0");
+                player.getDebug().setLogToBrowserConsole(params.dashjsLog !== "0");
 
-                var videoElementId = "videoPlayer";
-                var videoElement = document.getElementById(videoElementId);
-
-                videoElement.addEventListener('error', function(ev) {
-                    console.log(ev);
-                    console.log(videoElement.error);
-                });
-
-                var url = urlParams.mpd || mpdSelector.value;
-                var autoStart = true;
+                player.enableBufferOccupancyABR(enableBOLA);
                 player.initialize(videoElement, url, autoStart);
 
-                mpdSelector.value = url;
-
-                startUpdate();
-            })();
+                return player;
+            }
         </script>
+        <script src="index.js"></script>
+
     </body>
 </html>
