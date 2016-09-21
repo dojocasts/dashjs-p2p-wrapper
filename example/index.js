@@ -1,6 +1,11 @@
 var updateIntervalId;
 var player;
 
+var p2pConfig = {
+    streamrootKey: "ry-tguzre2t",
+    debug: true
+};
+
 function startUpdate() {
     updateIntervalId = setInterval(update, 1000);
 }
@@ -59,10 +64,6 @@ function parseURLOption(params, option, defaultValue) {
         console.log(videoElement.error);
     });
 
-    var p2pConfig = {
-        streamrootKey: "ry-tguzre2t",
-        debug: true
-    };
     var urlParams = getURLParams(document.location.search);
     var url = urlParams.mpd || mpdSelector.value;
 
