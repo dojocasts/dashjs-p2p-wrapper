@@ -11,7 +11,6 @@ function stopUpdate() {
 
 function update() {
     if (player.isReady()) {
-        document.getElementById("liveDelay").innerHTML = "liveDelay=" + liveDelay;
         document.getElementById("bufferLength").innerHTML = "bufferLength=" + player.getBufferLength();
     }
 }
