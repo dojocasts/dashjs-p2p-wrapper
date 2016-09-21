@@ -62,6 +62,8 @@
 
                 var player = dashjs.MediaPlayer().create();
 
+                // NOTE: we don't really need a reference to the wrapper instance
+                //       itself, we just need to initialize the internals here
                 var wrapper = new DashjsWrapper(player, p2pConfig, liveDelay);
 
                 player.getDebug().setLogToBrowserConsole(params.dashjsLog !== "0");
