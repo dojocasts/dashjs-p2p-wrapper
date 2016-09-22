@@ -7,6 +7,7 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ### Added
 - `RequestModifier.modifyRequestHeader` support
 - `withCredentials` param support
+- Expose version on private and public API
 
 ## [Unreleased]
 
