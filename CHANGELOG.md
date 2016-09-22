@@ -5,6 +5,9 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ## [Dev]
 
+### Added
+- Expose version on private and public API
+
 ## [Unreleased]
 
 ## [1.5.1] - 2016-08-18
