@@ -2,12 +2,7 @@
     <head>
         <title>Wrapper example</title>
 
-        <script type="text/javascript">
-            window._MOBILE_ = false;
-            window._ENVIRONMENT_ = 'development';
-            window._DEBUG_ = true;
-            window._TEST_ = false;
-        </script>
+        <script src="env.js"></script>
 
         <!-- streamroot-dash wrapper -->
         <script src="../node_modules/dashjs/dist/dash.all.debug.js"></script>
@@ -37,7 +32,6 @@
                 </select>
             </div>
             <div id="playbackStats">
-                <span id="liveDelay">liveDelay=</span>
                 <span id="bufferLength">bufferLength=</span>
             </div>
         </div>
@@ -67,6 +61,8 @@
 
                 var player = dashjs.MediaPlayer().create();
 
+                // NOTE: we don't really need a reference to the wrapper instance
+                //       itself, we just need to initialize the internals here
                 var wrapper = new DashjsWrapper(player, p2pConfig, liveDelay);
 
                 player.getDebug().setLogToBrowserConsole(params.dashjsLog !== "0");
