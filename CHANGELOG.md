@@ -9,6 +9,9 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 - `withCredentials` param support
 - Expose version on private and public API
 
+### Changed
+- Use getLiveDelay from dash.js MediaPlayer API if existent
+
 ## [Unreleased]
 
 ## [1.5.1] - 2016-08-18
