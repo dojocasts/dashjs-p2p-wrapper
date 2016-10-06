@@ -8,6 +8,7 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 - `RequestModifier.modifyRequestHeader` support
 - `withCredentials` param support
 - Expose version on private and public API
+- Expose peer-agent stats
 
 ### Changed
 - Use getLiveDelay from dash.js MediaPlayer API if existent
