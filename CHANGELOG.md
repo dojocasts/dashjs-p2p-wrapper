@@ -4,6 +4,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This changelog's template come from [keepachangelog.com](http://keepachangelog.com/). When editing this document, please follow the convention specified there.
 
 ## [Dev]
+
+## [Unreleased]
+
+## [1.6.0] - 2016-10-06
 ### Added
 - `RequestModifier.modifyRequestHeader` support
 - `withCredentials` param support
@@ -12,8 +16,6 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ### Changed
 - Use getLiveDelay from dash.js MediaPlayer API if existent
-
-## [Unreleased]
 
 ## [1.5.1] - 2016-08-18
 ### Fixed
