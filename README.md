@@ -3,7 +3,7 @@
 Dash.js P2P wrapper. It enables [Streamroot's P2P](http://streamroot.io) solution for [dash.js](https://github.com/Dash-Industry-Forum/dash.js).
 
 **The bundled version of dash.js is v2.2.0**
- 
+
 ## Prerequisites
 
 - Node.js v6 or later
@@ -149,6 +149,21 @@ npm run bundle
 ```
 scripts\dist_bundle.rb
 ```
+
+### Statistics
+
+#### Bundle
+
+No statistics available yet.
+
+#### Wrapper
+
+A `stats` object is available on a `DashjsWrapper` instance and contains the following properties:
+
+- `cdn`: cdn downloaded (cumulated bytes).
+- `p2p`: p2p offloaded from cdn (cumulated bytes).
+- `upload`: p2p uploaded (cumulated bytes).
+- `peers`: real time connected peers count.
 
 ### Launch the example
 
