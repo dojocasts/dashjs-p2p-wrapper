@@ -2,7 +2,7 @@
 
 Dash.js P2P wrapper. It enables [Streamroot's P2P](http://streamroot.io) solution for [dash.js](https://github.com/Dash-Industry-Forum/dash.js).
 
-**The bundled version of dash.js is v2.2.0**
+**The bundled version of dash.js is v2.3.0**
 
 ## Prerequisites
 
