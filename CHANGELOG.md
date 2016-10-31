@@ -4,10 +4,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This changelog's template come from [keepachangelog.com](http://keepachangelog.com/). When editing this document, please follow the convention specified there.
 
 ## [Dev]
-### Fixed
-- maxBufferLevel being NaN
 
 ## [Unreleased]
+
+## [1.7.0] - 2016-10-31
+### Fixed
+- maxBufferLevel being NaN
 
 ## [1.6.0] - 2016-10-06
 ### Added
