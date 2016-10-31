@@ -7,6 +7,10 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ## [Unreleased]
 
+## [1.7.0] - 2016-10-31
+### Fixed
+- maxBufferLevel being NaN
+
 ## [1.6.0] - 2016-10-06
 ### Added
 - `RequestModifier.modifyRequestHeader` support
