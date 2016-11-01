@@ -7,6 +7,33 @@ You can integrate this bundle with minimal changes in your application. **The bu
 
 It also provides a wrapper that allows you to create/configure a player with a specific version of [`dash.js`](https://github.com/Dash-Industry-Forum/dash.js). **Minimum supported version of dash.js is v2.2.0**.
 
+### Install via npm
+You can install the artifacts distributed as NPM modules:
+
+For the wrapper with dash.js included:
+
+```
+npm install streamroot-dashjs-p2p-bundle
+```
+
+For the wrapper without dash.js:
+
+```
+npm install streamroot-dashjs-p2p-wrapper
+```
+
+In your application import/require the package you want to use as in the example like
+
+```javascript
+import DashjsP2PBundle from 'streamroot-dashjs-p2p-bundle';
+```
+
+or
+
+```javascript
+import DashjsWrapper from 'streamroot-dashjs-p2p-wrapper';
+```
+
 ### Build
 
 #### Prerequisites
