@@ -93,8 +93,8 @@ Include the bundle build in your app.
 
 ```html
 <head>
-	<!-- path to dashjs-p2p-bundle build -->
-	<script src="dashjs-p2p-bundle.js"></script>
+    <!-- path to dashjs-p2p-bundle build -->
+    <script src="dashjs-p2p-bundle.js"></script>
 </head>
 ```
 
