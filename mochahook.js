@@ -2,3 +2,4 @@ require('should');
 require('babel-core/register')({
     ignore: /node_modules/,
 });
+window = global;
