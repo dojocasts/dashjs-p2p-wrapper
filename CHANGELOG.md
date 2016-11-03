@@ -7,6 +7,10 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ## [Unreleased]
 
+## [1.7.2] - 2016-11-03
+### Added
+- Filter supported media types to handle only `audio` and `video`
+
 ## [1.7.0] - 2016-10-31
 ### Fixed
 - maxBufferLevel being NaN
