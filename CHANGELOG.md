@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+### Added
+- Filter supported media types to handle only `audio` and `video`
 
 ## [1.7.0] - 2016-10-31
 ### Fixed
