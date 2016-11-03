@@ -102,8 +102,7 @@ Use the MediaPlayer bundle factory provided by `dashjs-p2p-bundle` to create das
 
 ```javascript
 var p2pConfig = {
-    streamrootKey: YOUR_STREAMROOT_KEY_HERE,
-    debug: true
+    streamrootKey: YOUR_STREAMROOT_KEY_HERE
 };
 
 var player = DashjsP2PBundle.MediaPlayer().create(p2pConfig);
@@ -135,8 +134,7 @@ Create a dash.js MediaPlayer instance. Create wrapper instance, passing dash.js 
 var player = dashjs.MediaPlayer().create();
 
 var p2pConfig = {
-    streamrootKey: YOUR_STREAMROOT_KEY_HERE,
-    debug: true //true if you want to see debug messages in browser console, false otherwise
+    streamrootKey: YOUR_STREAMROOT_KEY_HERE
 };
 
 var liveDelay = 30;
