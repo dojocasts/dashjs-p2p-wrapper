@@ -82,7 +82,7 @@ To build and compile-watch development/debug versions use ```npm run wrapper_dev
 For running unit tests (in node.js), use
 
 ```
-npm run test
+npm test
 ```
 
 ### Example
