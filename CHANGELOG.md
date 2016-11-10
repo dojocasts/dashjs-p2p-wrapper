@@ -6,6 +6,7 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+- Expect HttpError instance passed in fragment loader's onError callback
 
 ## [1.7.2] - 2016-11-03
 ### Added
