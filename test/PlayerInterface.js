@@ -10,7 +10,7 @@ describe("PlayerInterface",() => {
             let manifestHelper = {};
             let liveDelay = 30;
             let playerInterface = new PlayerInterface(player, manifestHelper, liveDelay);
-            playerInterface.getBufferLevelMax().should.be.equal(20); // liveDelay - MIN_BUFFER_LEVEL(10 seconds)
+            playerInterface.getBufferLevelMax().should.be.equal(30); // liveDelay
         });
     });
 });
