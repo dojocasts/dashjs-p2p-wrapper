@@ -4,10 +4,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This changelog's template come from [keepachangelog.com](http://keepachangelog.com/). When editing this document, please follow the convention specified there.
 
 ## [Dev]
-### Removed
-- Remove MIN_BUFFER_LEVEL from the wrapper. It is now handled by the peer-agent
 
 ## [Unreleased]
+
+## [1.8.0] - 2016-11-16
+### Removed
+- Remove MIN_BUFFER_LEVEL from the wrapper. It is now handled by the peer-agent
 
 ## [1.7.3] - 2016-11-10
 - Expect HttpError instance passed in fragment loader's onError callback
