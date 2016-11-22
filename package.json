@@ -1,7 +1,7 @@
 {
   "name": "streamroot-dashjs-p2p-wrapper",
   "description": "Streamroot P2P wrapper for the dash.js media player",
-  "version": "1.8.2",
+  "version": "1.8.3",
   "private": true,
   "author": {
     "name": "Streamroot",
