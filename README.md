@@ -160,7 +160,7 @@ Not available yet.
 
 #### Wrapper
 
-A `peerAgent` public API is exposed on a`DashjsWrapper` instance -- `wrapper.peerAgent`.
+A `peerAgent` public API is exposed on a `DashjsWrapper` instance -- `wrapper.peerAgent`.
 List of peerAgent's public API getters/setters is documented here https://streamroot.readme.io/docs/peeragent-class-reference.
 
 ### Run demos
