@@ -38,12 +38,7 @@ import DashjsWrapper from 'streamroot-dashjs-p2p-wrapper';
 
 #### Prerequisites
 
-First of all, make sure you are using a Node.js version >= 6.0.0
-
-Webpack is used for building, so make sure that you have `webpack` installed in your global node binaries otherwise install it like this:
-```
-sudo npm install -g webpack
-```
+Make sure you are using a Node.js version >= 6.0.0.
 
 #### Clone this repo
 
