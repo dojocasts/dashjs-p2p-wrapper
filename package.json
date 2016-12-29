@@ -21,9 +21,9 @@
     "lint": "./node_modules/.bin/eslint lib/ test/",
     "lint-fix": "./node_modules/.bin/eslint --fix lib/ test/",
     "test": "./node_modules/.bin/mocha --require mochahook",
-    "wrapper": "webpack --progress --config webpack/webpack.wrapper.prod.babel.js",
+    "wrapper": "webpack --config webpack/webpack.wrapper.prod.babel.js",
     "wrapper_dev": "webpack --progress --watch --config webpack/webpack.wrapper.dev.babel.js",
-    "bundle": "webpack --progress --config webpack/webpack.bundle.prod.babel.js",
+    "bundle": "webpack --config webpack/webpack.bundle.prod.babel.js",
     "bundle_dev": "webpack --progress --watch --config webpack/webpack.bundle.dev.babel.js",
     "build": "npm run clean && npm run wrapper && npm run bundle"
   },
