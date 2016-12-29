@@ -17,7 +17,7 @@
   "license": "MIT",
   "main": "lib/DashjsWrapper.js",
   "scripts": {
-    "clean": "./scripts/clean.rb",
+    "clean": "rm -Rf dist",
     "lint": "./node_modules/.bin/eslint lib/ test/",
     "lint-fix": "./node_modules/.bin/eslint --fix lib/ test/",
     "test": "./node_modules/.bin/mocha --require mochahook",
