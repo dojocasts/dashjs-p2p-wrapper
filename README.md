@@ -38,9 +38,7 @@ import DashjsWrapper from 'streamroot-dashjs-p2p-wrapper';
 
 #### Prerequisites
 
-First of all, make sure you are using a Node.js version >= 6.0.0
-
-Since the building uses a Ruby script, you need Ruby to be installed on your machine. On most Linux distros and on macOS, it's installed by default, but for Windows you need to install it [manually](https://www.ruby-lang.org/en/).
+Make sure you are using a Node.js version >= 6.0.0.
 
 #### Clone this repo
 
@@ -56,24 +54,11 @@ npm install
 
 #### Build the library
 
-##### Unix
-
 ```
 npm run build
 ```
 
 The results will be in the destination folders `dist/wrapper` and `dist/bundle`.
-
-##### Windows
-
-```
-scripts\clean.rb
-scripts\dashjs.rb
-scripts\dist_wrapper.rb
-scripts\dist_bundle.rb
-```
-
-The results will be in the destination folders `dist\wrapper` and `dist\bundle`.
 
 To build and compile-watch development/debug versions use ```npm run wrapper_dev``` or ```npm run bundle_dev``` for wrapper and bundle respectively.
 
