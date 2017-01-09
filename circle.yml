@@ -125,6 +125,58 @@ deployment:
                                       --key $S3_KEY
                                       --secret $S3_SECRET
 
+            #
+            ## Debug builds
+            #
+
+            # Cleanup
+            - rm -rf dist
+
+            # Install debug peer-agent
+            - rm -rf node_modules/streamroot-p2p
+            - npm install @streamroot/peer-agent-debug@beta
+            - mv node_modules/@streamroot/peer-agent-debug node_modules/streamroot-p2p
+
+            # Generate dist
+            - npm run build:bundle
+            - npm run build:wrapper
+
+            - toolkit/add_banner.rb --file dist/bundle/$DIST_BUNDLE
+                                    --deploy_env staging
+                                    --version $(toolkit/current_version.rb)
+                                    --dependencies @streamroot/peer-agent-debug dashjs
+                                    --name $BUNDLE_NAME-debug
+            - toolkit/add_banner.rb --file dist/wrapper/$DIST_WRAPPER
+                                    --deploy_env staging
+                                    --version $(toolkit/current_version.rb)
+                                    --dependencies @streamroot/peer-agent-debug
+
+            - cp dist/bundle/$DIST_BUNDLE $CIRCLE_ARTIFACTS/$BUNDLE_NAME.debug.js
+            - cp dist/wrapper/$DIST_WRAPPER $CIRCLE_ARTIFACTS/$WRAPPER_NAME.debug.js
+
+            # Build package.json
+            - toolkit/build_dist_package.rb --version $(toolkit/current_version.rb)
+                                            --main ./$BUNDLE_NAME.debug.js
+                                            --name @streamroot/dashjs-p2p-bundle-debug
+                                            -o dist/bundle/package.json
+            - toolkit/build_dist_package.rb --version $(toolkit/current_version.rb)
+                                            --main ./$WRAPPER_NAME.debug.js
+                                            --name @streamroot/dashjs-p2p-wrapper-debug
+                                            -o dist/wrapper/package.json
+
+            # Copy sources (lib) into wrapper dist folder
+            # We ship the sources to be able to access private API
+            # for integration testing usage
+            - cp -R lib dist/wrapper/
+
+            # Publish
+            - npm publish dist/bundle --tag beta
+            - npm publish dist/wrapper --tag beta
+
+            #
+            ## End Debug builds
+            #
+
             # Changelog
             - toolkit/post_changelog.rb   --project $CIRCLE_PROJECT_REPONAME
                                           --env staging
@@ -217,6 +269,56 @@ deployment:
                                                      $CIRCLE_PROJECT_REPONAME/latest/$DIST_WRAPPER
                                       --key $S3_KEY
                                       --secret $S3_SECRET
+
+            #
+            ## Debug builds
+            #
+
+            # Cleanup
+            - rm -rf dist
+
+            # Install debug peer-agent
+            - rm -rf node_modules/streamroot-p2p
+            - npm install @streamroot/peer-agent-debug
+            - mv node_modules/@streamroot/peer-agent-debug node_modules/streamroot-p2p
+
+            # Generate dist
+            - npm run build:bundle
+            - npm run build:wrapper
+
+            - toolkit/add_banner.rb --file dist/bundle/$DIST_BUNDLE
+                                    --version $(toolkit/current_version.rb)
+                                    --dependencies @streamroot/peer-agent-debug dashjs
+                                    --name $BUNDLE_NAME-debug
+            - toolkit/add_banner.rb --file dist/wrapper/$DIST_WRAPPER
+                                    --version $(toolkit/current_version.rb)
+                                    --dependencies @streamroot/peer-agent-debug
+
+            - cp dist/bundle/$DIST_BUNDLE $CIRCLE_ARTIFACTS/$BUNDLE_NAME.debug.js
+            - cp dist/wrapper/$DIST_WRAPPER $CIRCLE_ARTIFACTS/$WRAPPER_NAME.debug.js
+
+            # Build package.json
+            - toolkit/build_dist_package.rb --version $(toolkit/current_version.rb)
+                                            --main ./$BUNDLE_NAME.debug.js
+                                            --name @streamroot/dashjs-p2p-bundle-debug
+                                            -o dist/bundle/package.json
+            - toolkit/build_dist_package.rb --version $(toolkit/current_version.rb)
+                                            --main ./$WRAPPER_NAME.debug.js
+                                            --name @streamroot/dashjs-p2p-wrapper-debug
+                                            -o dist/wrapper/package.json
+
+            # Copy sources (lib) into wrapper dist folder
+            # We ship the sources to be able to access private API
+            # for integration testing usage
+            - cp -R lib dist/wrapper/
+
+            # Publish
+            - npm publish dist/bundle --tag rc
+            - npm publish dist/wrapper --tag rc
+
+            #
+            ## End Debug builds
+            #
 
             # Changelog
             - toolkit/post_changelog.rb   --project $CIRCLE_PROJECT_REPONAME
