@@ -4,10 +4,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This changelog's template come from [keepachangelog.com](http://keepachangelog.com/). When editing this document, please follow the convention specified there.
 
 ## [Dev]
-### Changed
-- Makefile and Ruby build scripts were replaced by Webpack.
 
 ## [Unreleased]
+
+## [1.9.0] - 2017-01-10
+### Changed
+- Makefile and Ruby build scripts were replaced by Webpack.
 
 ## [1.8.0] - 2016-11-16
 ### Removed
