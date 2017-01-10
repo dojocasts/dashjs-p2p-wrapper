@@ -38,9 +38,7 @@ import DashjsWrapper from 'streamroot-dashjs-p2p-wrapper';
 
 #### Prerequisites
 
-First of all, make sure you are using a Node.js version >= 6.0.0
-
-Since the building uses a Ruby script, you need Ruby to be installed on your machine. On most Linux distros and on macOS, it's installed by default, but for Windows you need to install it [manually](https://www.ruby-lang.org/en/).
+Make sure you are using a Node.js version >= 6.0.0.
 
 #### Clone this repo
 
@@ -56,24 +54,11 @@ npm install
 
 #### Build the library
 
-##### Unix
-
 ```
 npm run build
 ```
 
 The results will be in the destination folders `dist/wrapper` and `dist/bundle`.
-
-##### Windows
-
-```
-scripts\clean.rb
-scripts\dashjs.rb
-scripts\dist_wrapper.rb
-scripts\dist_bundle.rb
-```
-
-The results will be in the destination folders `dist\wrapper` and `dist\bundle`.
 
 To build and compile-watch development/debug versions use ```npm run wrapper_dev``` or ```npm run bundle_dev``` for wrapper and bundle respectively.
 
@@ -152,20 +137,16 @@ To see full sample code and extended possibilities of how to use this module, ta
 
 Specify your `streamrootKey` in the `p2pConfig` object. If you don't have it, go to [Streamroot's dashboard](http://dashboard.streamroot.io/) and sign up. It's free. You can check other `p2pConfig` options in the [documentation](https://streamroot.readme.io/docs/p2p-config).
 
-### Statistics
+### Peer agent instance exposure
 
 #### Bundle
 
-No statistics available yet.
+Not available yet.
 
 #### Wrapper
 
-A `stats` object is available on a `DashjsWrapper` instance and contains the following properties:
-
-- `cdn`: cdn downloaded (cumulated bytes).
-- `p2p`: p2p offloaded from cdn (cumulated bytes).
-- `upload`: p2p uploaded (cumulated bytes).
-- `peers`: real time connected peers count.
+A `peerAgent` public API is exposed on a `DashjsWrapper` instance -- `wrapper.peerAgent`.
+List of peerAgent's public API getters/setters is documented here https://streamroot.readme.io/docs/peeragent-class-reference.
 
 ### Run demos
 
