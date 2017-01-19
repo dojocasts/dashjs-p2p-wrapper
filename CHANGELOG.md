@@ -4,10 +4,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This changelog's template come from [keepachangelog.com](http://keepachangelog.com/). When editing this document, please follow the convention specified there.
 
 ## [Dev]
-### Fixed
-- Wrapper exception when accessing undefined peerAgentModule.
 
 ## [Unreleased]
+### Fixed
+- Wrapper exception when accessing undefined peerAgentModule.
 
 ## [1.9.0] - 2017-01-10
 ### Changed
