@@ -7,6 +7,10 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ## [Unreleased]
 
+## [1.9.2] - 2017-01-20
+### Fixed
+- Wrapper exception when accessing undefined peerAgentModule.
+
 ## [1.9.0] - 2017-01-10
 ### Changed
 - Makefile and Ruby build scripts were replaced by Webpack.
