@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+
+## [1.9.2] - 2017-01-20
 ### Fixed
 - Wrapper exception when accessing undefined peerAgentModule.
 
