@@ -21,7 +21,7 @@
     "build:bundle": "webpack --config webpack/webpack.bundle.prod.babel.js",
     "build:wrapper": "webpack --config webpack/webpack.wrapper.prod.babel.js",
     "bundle_dev": "webpack --progress --watch --config webpack/webpack.bundle.dev.babel.js",
-    "clean": "rm -Rf dist",
+    "clean": "rimraf dist",
     "lint": "./node_modules/.bin/eslint lib/ test/",
     "lint-fix": "./node_modules/.bin/eslint --fix lib/ test/",
     "test": "./node_modules/.bin/mocha --require mochahook",
@@ -44,6 +44,7 @@
     "eslint": "^2.11.1",
     "eslint-config-streamroot": "^1.0.1",
     "mocha": "^2.4.5",
+    "rimraf": "latest",
     "should": "^9.0.1",
     "webpack": "^1.14.0"
   }
