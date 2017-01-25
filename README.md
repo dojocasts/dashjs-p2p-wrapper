@@ -5,7 +5,7 @@ This module wraps [`dash.js`](https://github.com/Dash-Industry-Forum/dash.js) to
 It provides a bundle that extends the [`dash.js`](https://github.com/Dash-Industry-Forum/dash.js) `MediaPlayer` constructor to create a fully configured player which will use the Streamroot P2P module, giving you the exact same API.
 You can integrate this bundle with minimal changes in your application. **The bundled version of dash.js is v2.3.0**.
 
-It also provides a wrapper that allows you to create/configure a player with a specific version of [`dash.js`](https://github.com/Dash-Industry-Forum/dash.js). **Minimum supported version of dash.js is v2.2.0**.
+It also provides a wrapper that allows you to create/configure a player with a specific version of [`dash.js`](https://github.com/Dash-Industry-Forum/dash.js). **Minimum supported version of dash.js is v2.2.0. Dash.js 2.4+ is not supported at the moment.**
 
 ### Install via npm
 You can install the artifacts distributed as NPM modules:
