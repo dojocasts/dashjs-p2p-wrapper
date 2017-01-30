@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <title>Wrapper example</title>
+
+        <!-- streamroot-dash wrapper -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dashjs/2.4.0/dash.all.min.js"></script>
+        <script src="../dist/wrapper/dashjs-p2p-wrapper.js"></script>
+
+        <!-- p2p graphics and peer stats -->
+        <script src="http://cdn.streamroot.io/2/scripts/peerStat.js"></script>
+        <script src="http://cdn.streamroot.io/2/scripts/p2pGraph.js"></script>
+
+        <!-- graph dependencies -->
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/rickshaw/1.4.6/rickshaw.min.css">
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/rickshaw/1.4.6/rickshaw.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.9/d3.min.js"></script>
+    </head>
+    <body>
+
+        <a href="bundle.html">Go to bundle example</a><br><br>
+
+        <div>
+            <div id="mainfestSelection" />
+                <select id="mpdSelector" name="mpdSelector">
+                    <option value="http://wowza-test.streamroot.io/liveOrigin/sintel-live.smil/manifest.mpd">Streamroot live test stream</option>
+                    <option value="http://wowza.streamroot.io/vodOriginSite/tears_of_steel720p.mp4/manifest.mpd">ToS (VoD, 1 video)</option>
+                    <option value="http://wowza.streamroot.io/liveorigin/stream4/manifest.mpd">ToS (Live DVR, 1 video)</option>
+                    <option value="http://wowza.streamroot.io/liveorigin/Sample-live.smil/manifest.mpd">Sintel (Live DVR, 3 video)</option>
+                    <option value="http://wowza.streamroot.io/vodOriginSite/Sample-vod.smil/manifest.mpd">Sintel (VoD, 3 video)</option>
+                </select>
+            </div>
+            <div id="playbackStats">
+                <span id="bufferLength">bufferLength=</span>
+            </div>
+        </div>
+
+        <div id="videoContainer">
+            <video id="videoPlayer" width="480" height="360" controls muted></video>
+        </div>
+
+        <div id="qualityControls">
+            <button id="videoQualitySwitcher">setQualityForVideoTo</button>
+            <input id="presentationId" type="text" />
+        </div>
+
+        <div id="bufferDisplay" />
+        <div id="chunkDisplay" />
+        <div id="p2pGraph" />
+        <div id="peerStat"/>
+
+        <script>
+
+            function createPlayer(videoElement, url, params, p2pConfig) {
+                var liveDelay = Number(params.liveDelay) || 30;
+
+                var autoStart = parseURLOption(params, "autoStart", true);
+                var enableBOLA = parseURLOption(params, "enableBOLA", false);
+
+                var player = dashjs.MediaPlayer().create();
+
+                // NOTE: we don't really need a reference to the wrapper instance
+                //       itself, we just need to initialize the internals here
+                var wrapper = new DashjsWrapper(player, p2pConfig, liveDelay);
+
+                player.getDebug().setLogToBrowserConsole(params.dashjsLog !== "0");
+
+                player.enableBufferOccupancyABR(enableBOLA);
+                player.initialize(videoElement, url, autoStart);
+
+                return player;
+            }
+
+        </script>
+        <script src="index.js"></script>
+
+    </body>
+</html>
