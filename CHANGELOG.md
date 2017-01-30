@@ -5,6 +5,9 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ## [Dev]
 
+### Fixed
+- Fix breaking changes from Dash.js 2.4.
+
 ## [Unreleased]
 
 ## [1.9.4] - 2017-01-30
