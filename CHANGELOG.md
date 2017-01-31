@@ -5,6 +5,9 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ## [Dev]
 
+### Changed
+- Replace debug tools in example page with `public-graph`.
+
 ### Fixed
 - Fix breaking changes from Dash.js 2.4.
 
