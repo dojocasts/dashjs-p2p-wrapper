@@ -32,10 +32,8 @@ function parseURLOption(params, option, defaultValue) {
 
     // manifest selector handler
     document.getElementById("mpdSelector").onchange = function() {
-        stopUpdate();
         var mpdUrl = document.getElementById("mpdSelector").value;
         player.attachSource(mpdUrl);
-        startUpdate();
     };
 
     var videoElement = document.getElementById("videoPlayer");
