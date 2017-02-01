@@ -133,6 +133,16 @@ player.initialize(videoElement, manifestURL, autoStart);
 
 To see full sample code and extended possibilities of how to use this module, take a look at the code in the `example` directory.
 
+#### Wrapper with specific release of Dash.js from CDN
+
+If you want to test the wrapper with a specific version of Dash.js, you could generate an example page with a specific version of Dash.js using:
+
+```
+npm run generate_example -- <Dash.js version>
+```
+
+For example `npm run generate_example -- 2.4.0` will generate `example2.4.0.wrapper.html` with Dash.js `2.4.0` instead of the bundled Dash.js `2.3.0`.
+
 ### Configuration
 
 Specify your `streamrootKey` in the `p2pConfig` object. If you don't have it, go to [Streamroot's dashboard](http://dashboard.streamroot.io/) and sign up. It's free. You can check other `p2pConfig` options in the [documentation](https://streamroot.readme.io/docs/p2p-config).
