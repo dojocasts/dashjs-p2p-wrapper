@@ -5,6 +5,15 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ## [Dev]
 
+### Added
+- Ruby script to generate example wrapper page with a specific version of Dash.js.
+
+### Changed
+- Replace debug tools in example page with `public-graph`.
+
+### Fixed
+- Fix breaking changes from Dash.js 2.4.
+
 ## [Unreleased]
 
 ## [1.9.4] - 2017-01-30

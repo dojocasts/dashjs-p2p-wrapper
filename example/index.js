@@ -6,20 +6,6 @@ var p2pConfig = {
     debug: true
 };
 
-function startUpdate() {
-    updateIntervalId = setInterval(update, 1000);
-}
-
-function stopUpdate() {
-    clearInterval(updateIntervalId);
-}
-
-function update() {
-    if (player.isReady()) {
-        document.getElementById("bufferLength").innerHTML = "bufferLength=" + player.getBufferLength();
-    }
-}
-
 function getURLParams(url) {
     if (!url) {
         return {};
@@ -39,23 +25,15 @@ function getURLParams(url) {
 }
 
 function parseURLOption(params, option, defaultValue) {
-    return !! (params[option] !== undefined ? parseInt(params[option]) : defaultValue);
+    return !!(params[option] !== undefined ? parseInt(params[option]) : defaultValue);
 }
 
 (function() {
 
     // manifest selector handler
     document.getElementById("mpdSelector").onchange = function() {
-        stopUpdate();
         var mpdUrl = document.getElementById("mpdSelector").value;
         player.attachSource(mpdUrl);
-        startUpdate();
-    };
-
-    // quality switch button click handler
-    document.getElementById("videoQualitySwitcher").onclick = function() {
-        player.setAutoSwitchQualityFor('video', false);
-        player.setQualityFor('video', document.getElementById("presentationId").value);
     };
 
     var videoElement = document.getElementById("videoPlayer");
@@ -70,7 +48,5 @@ function parseURLOption(params, option, defaultValue) {
     player = createPlayer(videoElement, url, urlParams, p2pConfig);
 
     mpdSelector.value = url;
-
-    startUpdate();
 
 })();

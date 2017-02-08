@@ -4,15 +4,6 @@
 
         <!-- streamroot-dash bundle -->
         <script src="../dist/bundle/dashjs-p2p-bundle.js"></script>
-
-        <!-- p2p graphics and peer stats -->
-        <script src="http://cdn.streamroot.io/2/scripts/peerStat.js"></script>
-        <script src="http://cdn.streamroot.io/2/scripts/p2pGraph.js"></script>
-
-        <!-- graph dependencies -->
-        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/rickshaw/1.4.6/rickshaw.min.css">
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/rickshaw/1.4.6/rickshaw.min.js"></script>
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.9/d3.min.js"></script>
     </head>
     <body>
 
@@ -28,24 +19,12 @@
                     <option value="http://wowza.streamroot.io/vodOriginSite/Sample-vod.smil/manifest.mpd">Sintel (VoD, 3 video)</option>
                 </select>
             </div>
-            <div id="playbackStats">
-                <span id="bufferLength">bufferLength=</span>
-            </div>
         </div>
 
         <div id="videoContainer">
             <video id="videoPlayer" width="480" height="360" controls muted></video>
         </div>
-
-        <div id="qualityControls">
-            <button id="videoQualitySwitcher">setQualityForVideoTo</button>
-            <input id="presentationId" type="text" />
-        </div>
-
-        <div id="bufferDisplay" />
-        <div id="chunkDisplay" />
-        <div id="p2pGraph" />
-        <div id="peerStat"/>
+        <div id="streamroot-graphs"></div>
 
         <script>
             function createPlayer(videoElement, url, params, p2pConfig) {
@@ -64,6 +43,6 @@
             }
         </script>
         <script src="index.js"></script>
-
+        <script src="https://tools.streamroot.io/usage-graphs/latest/graphs.js"></script>
     </body>
 </html>
