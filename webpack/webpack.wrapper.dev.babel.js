@@ -15,6 +15,8 @@ export default Object.assign(baseConfig, {
         filename: 'dashjs-p2p-wrapper.js',
     },
 
+    devtool: 'source-map',
+
     plugins: [
         new webpack.DefinePlugin({
             _VERSION_: JSON.stringify(version),
