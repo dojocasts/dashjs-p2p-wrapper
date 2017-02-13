@@ -7,6 +7,9 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ## [Unreleased]
 
+### Fixed
+- Fix playback hanging on Firefox.
+
 ## [1.10.0] - 2017-02-08
 
 ### Added
