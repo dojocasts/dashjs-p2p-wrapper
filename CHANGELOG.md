@@ -83,3 +83,4 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [1.3.0] - 2016-07-11
 ### Changed
 - Publish npm dist as rc when comming from master
+[1.10.3]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.10.2...v1.10.3
