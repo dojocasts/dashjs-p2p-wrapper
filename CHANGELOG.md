@@ -14,7 +14,7 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ### Fixed
 - Catching quality switch events.
-- Multiple current tracks update on STREAM_INITIALIZED event for live streams. (Breaks track switch count metrcis).
+- Multiple current tracks update on STREAM_INITIALIZED event for live streams. (Breaks track switch count metrics).
 - Peer agent event handlers disposal.
 
 ## [1.10.2] - 2017-02-13
