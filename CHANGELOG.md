@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+
+## [1.11.0] - 2017-03-13
 ### Added
 - Catching fragment loading abortion(due to unsufficient bandwidth) and notifying peer agent about that.
 
@@ -93,4 +95,4 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [1.3.0] - 2016-07-11
 ### Changed
 - Publish npm dist as rc when comming from master
-[1.10.3]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.10.2...v1.10.3[1.10.4]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.10.2...v1.10.4[1.10.5]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.10.2...v1.10.5
+[1.10.3]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.10.2...v1.10.3[1.10.4]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.10.2...v1.10.4[1.10.5]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.10.2...v1.10.5[1.11.0]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.10.2...v1.11.0
