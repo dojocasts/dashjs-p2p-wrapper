@@ -6,6 +6,16 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+### Added
+- Catching fragment loading abortion(due to unsufficient bandwidth) and notifying peer agent about that.
+
+### Changed
+- Simplified peer agent event handling.
+
+### Fixed
+- Catching quality switch events.
+- Multiple current tracks update on STREAM_INITIALIZED event for live streams. (Breaks track switch count metrics).
+- Peer agent event handlers disposal.
 
 ## [1.10.2] - 2017-02-13
 
