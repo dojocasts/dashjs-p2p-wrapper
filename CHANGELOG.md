@@ -10,6 +10,7 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [1.11.0] - 2017-03-13
 ### Added
 - Catching fragment loading abortion(due to unsufficient bandwidth) and notifying peer agent about that.
+- `type` property to TrackView.
 
 ### Changed
 - Simplified peer agent event handling.
