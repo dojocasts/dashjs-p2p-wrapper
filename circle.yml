@@ -144,12 +144,12 @@ deployment:
             - toolkit/add_banner.rb --file dist/bundle/$DIST_BUNDLE
                                     --deploy_env staging
                                     --version $(toolkit/current_version.rb)
-                                    --dependencies @streamroot/peer-agent-debug dashjs
+                                    --dependencies streamroot-p2p dashjs
                                     --name $BUNDLE_NAME-debug
             - toolkit/add_banner.rb --file dist/wrapper/$DIST_WRAPPER
                                     --deploy_env staging
                                     --version $(toolkit/current_version.rb)
-                                    --dependencies @streamroot/peer-agent-debug
+                                    --dependencies streamroot-p2p
 
             - cp dist/bundle/$DIST_BUNDLE $CIRCLE_ARTIFACTS/$BUNDLE_NAME.debug.js
             - cp dist/wrapper/$DIST_WRAPPER $CIRCLE_ARTIFACTS/$WRAPPER_NAME.debug.js
@@ -308,11 +308,11 @@ deployment:
 
             - toolkit/add_banner.rb --file dist/bundle/$DIST_BUNDLE
                                     --version $(toolkit/current_version.rb)
-                                    --dependencies @streamroot/peer-agent-debug dashjs
+                                    --dependencies streamroot-p2p dashjs
                                     --name $BUNDLE_NAME-debug
             - toolkit/add_banner.rb --file dist/wrapper/$DIST_WRAPPER
                                     --version $(toolkit/current_version.rb)
-                                    --dependencies @streamroot/peer-agent-debug
+                                    --dependencies streamroot-p2p
 
             - cp dist/bundle/$DIST_BUNDLE $CIRCLE_ARTIFACTS/$BUNDLE_NAME.debug.js
             - cp dist/wrapper/$DIST_WRAPPER $CIRCLE_ARTIFACTS/$WRAPPER_NAME.debug.js
