@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+### Fixed
+- Adjust download latency for hybrid and full P2P segments to always be considered as "non-cached" segments.
 
 ## [1.11.0] - 2017-03-13
 ### Added
