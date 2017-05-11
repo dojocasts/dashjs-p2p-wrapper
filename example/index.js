@@ -2,7 +2,7 @@ var updateIntervalId;
 var player;
 
 var p2pConfig = {
-    streamrootKey: 'demoswebsiteandpartners',
+    streamrootKey: 'dev-opensource',
 };
 
 function getURLParams(url) {
