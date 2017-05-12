@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "codem-isoboxer": "0.2.2",
-    "dashjs": "2.3.0",
+    "dashjs": "2.4.1",
     "eventemitter3": "^2.0.2",
     "streamroot-p2p": "^4.0.0"
   },

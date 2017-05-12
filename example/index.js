@@ -2,8 +2,7 @@ var updateIntervalId;
 var player;
 
 var p2pConfig = {
-    streamrootKey: "ry-tguzre2t",
-    debug: true
+    streamrootKey: 'dev-opensource',
 };
 
 function getURLParams(url) {

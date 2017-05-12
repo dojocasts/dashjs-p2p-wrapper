@@ -3,7 +3,7 @@
 This module wraps [`dash.js`](https://github.com/Dash-Industry-Forum/dash.js) to bootstrap it with [the Streamroot P2P module](http://streamroot.io).
 
 It provides a bundle that extends the [`dash.js`](https://github.com/Dash-Industry-Forum/dash.js) `MediaPlayer` constructor to create a fully configured player which will use the Streamroot P2P module, giving you the exact same API.
-You can integrate this bundle with minimal changes in your application. **The bundled version of dash.js is v2.3.0**.
+You can integrate this bundle with minimal changes in your application. **The bundled version of dash.js is v2.4.1**.
 
 It also provides a wrapper that allows you to create/configure a player with a specific version of [`dash.js`](https://github.com/Dash-Industry-Forum/dash.js). **Minimum supported version of dash.js is v2.2.0.**
 
