@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+
+## [1.11.10] - 2017-05-12
 ### Fixed
 - Adjust download latency for hybrid and full P2P segments to always be considered as "non-cached" segments.
 
@@ -105,3 +107,4 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 [1.11.7]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.0...v1.11.7
 [1.11.8]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.0...v1.11.8
 [1.11.9]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.0...v1.11.9
+[1.11.10]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.0...v1.11.10
