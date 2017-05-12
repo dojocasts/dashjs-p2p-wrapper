@@ -7,6 +7,10 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ## [Unreleased]
 
+## [1.11.10] - 2017-05-12
+### Fixed
+- Adjust download latency for hybrid and full P2P segments to always be considered as "non-cached" segments.
+
 ## [1.11.0] - 2017-03-13
 ### Added
 - Catching fragment loading abortion(due to unsufficient bandwidth) and notifying peer agent about that.
@@ -103,3 +107,4 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 [1.11.7]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.0...v1.11.7
 [1.11.8]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.0...v1.11.8
 [1.11.9]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.0...v1.11.9
+[1.11.10]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.0...v1.11.10
