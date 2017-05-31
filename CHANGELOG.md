@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+### Fixed
+- Prevent fragment load retry after abort (could cause a fragment of a previous bitrate to be appended after bitrate switch, causing decode error)
 
 ## [1.11.10] - 2017-05-12
 ### Fixed
