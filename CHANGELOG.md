@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+### Fixed
+- HttpRequestMetric format in our fragment loader: was expecting string for response headers. Returning null could break some 3rd party plugins
 
 ## [1.11.13] - 2017-05-31
 ### Fixed
