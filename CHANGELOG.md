@@ -7,6 +7,10 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ## [Unreleased]
 
+## [1.11.13] - 2017-05-31
+### Fixed
+- Prevent fragment load retry after abort (could cause a fragment of a previous bitrate to be appended after bitrate switch, causing decode error)
+
 ## [1.11.10] - 2017-05-12
 ### Fixed
 - Adjust download latency for hybrid and full P2P segments to always be considered as "non-cached" segments.
@@ -110,3 +114,4 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 [1.11.10]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.0...v1.11.10
 [1.11.11]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.10...v1.11.11
 [1.11.12]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.10...v1.11.12
+[1.11.13]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.10...v1.11.13
