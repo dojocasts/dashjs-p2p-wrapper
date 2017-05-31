@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+
+## [1.11.13] - 2017-05-31
 ### Fixed
 - Prevent fragment load retry after abort (could cause a fragment of a previous bitrate to be appended after bitrate switch, causing decode error)
 
@@ -112,3 +114,4 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 [1.11.10]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.0...v1.11.10
 [1.11.11]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.10...v1.11.11
 [1.11.12]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.10...v1.11.12
+[1.11.13]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.10...v1.11.13
