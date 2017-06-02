@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+
+## [1.11.15] - 2017-06-02
 ### Fixed
 - Make sure we don't call any FragmentLoader callback once a request is aborted (we used to call the downloadError callback)
 
@@ -122,3 +124,4 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 [1.11.12]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.10...v1.11.12
 [1.11.13]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.10...v1.11.13
 [1.11.14]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.13...v1.11.14
+[1.11.15]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.14...v1.11.15
