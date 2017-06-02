@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+### Fixed
+- Make sure we don't call any FragmentLoader callback once a request is aborted (we used to call the downloadError callback)
 
 ## [1.11.14] - 2017-05-31
 ### Fixed
