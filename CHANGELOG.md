@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+### Fixed
+- Detect when player is reset and dispose the wrapper.
 
 ## [1.11.15] - 2017-06-02
 ### Fixed
