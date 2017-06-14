@@ -6,6 +6,9 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+### Changed
+- Change ABR feedback: latency included in p2pDownloadDuration
+- Use dash.js fork with SegmentTimeline patch
 
 ## [1.11.17] - 2017-06-14
 ### Fixed
