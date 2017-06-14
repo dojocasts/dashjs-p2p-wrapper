@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+
+## [1.11.17] - 2017-06-14
 ### Fixed
 - Detect when player is reset and dispose the wrapper.
 
@@ -128,3 +130,4 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 [1.11.14]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.13...v1.11.14
 [1.11.15]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.14...v1.11.15
 [1.11.16]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.15...v1.11.16
+[1.11.17]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.15...v1.11.17
