@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+
+## [1.11.18] - 2017-06-14
 ### Changed
 - Change ABR feedback: latency included in p2pDownloadDuration
 - Use dash.js fork with SegmentTimeline patch
@@ -134,3 +136,4 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 [1.11.15]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.14...v1.11.15
 [1.11.16]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.15...v1.11.16
 [1.11.17]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.15...v1.11.17
+[1.11.18]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.17...v1.11.18
