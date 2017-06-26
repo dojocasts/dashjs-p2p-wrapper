@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+### Added
+- Added bitrate property on TrackView
 
 ## [1.11.18] - 2017-06-14
 ### Changed
