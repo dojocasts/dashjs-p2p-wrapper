@@ -143,3 +143,4 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 [1.11.22]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.18...v1.11.22
 [1.11.23]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.18...v1.11.23
 [1.11.24]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.18...v1.11.24
+[1.11.25]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.18...v1.11.25
