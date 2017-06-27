@@ -6,6 +6,9 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+### Added
+- Added bitrate property on TrackView
+- Prevent downswitch if the next segment is already prebuffered in the peer-agent
 
 ## [1.11.18] - 2017-06-14
 ### Changed
