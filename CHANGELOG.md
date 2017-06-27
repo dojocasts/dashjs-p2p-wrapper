@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+
+## [1.11.26] - 2017-06-27
 ### Added
 - Added bitrate property on TrackView
 - Prevent downswitch if the next segment is already prebuffered in the peer-agent
@@ -147,3 +149,4 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 [1.11.23]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.18...v1.11.23
 [1.11.24]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.18...v1.11.24
 [1.11.25]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.18...v1.11.25
+[1.11.26]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.18...v1.11.26
