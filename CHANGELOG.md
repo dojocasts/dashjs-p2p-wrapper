@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+### Fixed
+- Downswitch prevention when next segment is already prebuffered was not working as expected
 
 ## [1.11.26] - 2017-06-27
 ### Added
