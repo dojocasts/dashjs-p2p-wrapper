@@ -7,6 +7,10 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ## [Unreleased]
 
+## [1.11.36] - 2017-08-11
+### Fixed
+- Downswitch prevention when next segment is already prebuffered was not working as expected
+
 ## [1.11.26] - 2017-06-27
 ### Added
 - Added bitrate property on TrackView
@@ -159,3 +163,4 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 [1.11.33]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.26...v1.11.33
 [1.11.34]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.26...v1.11.34
 [1.11.35]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.26...v1.11.35
+[1.11.36]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.26...v1.11.36
