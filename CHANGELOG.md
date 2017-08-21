@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+### Fixed
+- Integration bug with number based SegmentTemplate manifests (`getSegmentList` used to always return the first N segments from the playlist)
 
 ## [1.11.36] - 2017-08-11
 ### Fixed
