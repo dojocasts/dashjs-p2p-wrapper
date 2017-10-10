@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+
+## [1.11.43] - 2017-10-10
 ### Fixed
 - Compatibility with dash.js v2.6.0
 
@@ -176,3 +178,4 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 [1.11.40]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.38...v1.11.40
 [1.11.41]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.38...v1.11.41
 [1.11.42]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.38...v1.11.42
+[1.11.43]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.38...v1.11.43
