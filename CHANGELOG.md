@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+### Fixed
+- Compatibility with dash.js v2.6.0
 
 ## [1.11.38] - 2017-08-21
 ### Fixed
