@@ -34,7 +34,6 @@
                 var liveDelay = Number(params.liveDelay) || 30;
 
                 var autoStart = parseURLOption(params, "autoStart", true);
-                var enableBOLA = parseURLOption(params, "enableBOLA", false);
 
                 var player = dashjs.MediaPlayer().create();
 
@@ -44,7 +43,6 @@
 
                 player.getDebug().setLogToBrowserConsole(params.dashjsLog !== "0");
 
-                player.enableBufferOccupancyABR(enableBOLA);
                 player.initialize(videoElement, url, autoStart);
 
                 return player;

@@ -7,6 +7,10 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ## [Unreleased]
 
+## [1.11.43] - 2017-10-10
+### Fixed
+- Compatibility with dash.js v2.6.0
+
 ## [1.11.38] - 2017-08-21
 ### Fixed
 - Integration bug with number based SegmentTemplate manifests (`getSegmentList` used to always return the first N segments from the playlist)
@@ -174,3 +178,4 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 [1.11.40]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.38...v1.11.40
 [1.11.41]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.38...v1.11.41
 [1.11.42]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.38...v1.11.42
+[1.11.43]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.38...v1.11.43

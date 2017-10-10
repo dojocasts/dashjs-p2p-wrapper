@@ -30,13 +30,11 @@
             function createPlayer(videoElement, url, params, p2pConfig) {
 
                 var autoStart = parseURLOption(params, "autoStart", true);
-                var enableBOLA = parseURLOption(params, "enableBOLA", false);
 
                 var player = DashjsP2PBundle.MediaPlayer().create(p2pConfig);
 
                 player.getDebug().setLogToBrowserConsole(params.dashjsLog !== "0");
 
-                player.enableBufferOccupancyABR(enableBOLA);
                 player.initialize(videoElement, url, autoStart);
 
                 return player;
