@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+### Fixed
+- Downswitch prevention when next segment is already prebuffered was broken for dash.js 2.6.0
 
 ## [1.11.43] - 2017-10-10
 ### Fixed
