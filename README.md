@@ -3,9 +3,17 @@
 This module wraps [`dash.js`](https://github.com/Dash-Industry-Forum/dash.js) to bootstrap it with [the Streamroot P2P module](http://streamroot.io).
 
 It provides a bundle that extends the [`dash.js`](https://github.com/Dash-Industry-Forum/dash.js) `MediaPlayer` constructor to create a fully configured player which will use the Streamroot P2P module, giving you the exact same API.
-You can integrate this bundle with minimal changes in your application. **The bundled version of dash.js is a fork of v2.4.1**. This fork includes a fix for live SegmentTimeline streams (see [dash.js issue](https://github.com/Dash-Industry-Forum/dash.js/issues/1916)).
+You can integrate this bundle with minimal changes in your application. **The bundled version of dash.js is a fork of v2.6.0**. This fork includes a fix for SegmentTemplate streams that only affects P2P efficiency (it has no effect on playback).
 
-It also provides a wrapper that allows you to create/configure a player with a specific version of [`dash.js`](https://github.com/Dash-Industry-Forum/dash.js). **Minimum supported version of dash.js is v2.2.0.**
+It also provides a wrapper that allows you to create/configure a player with a specific version of [`dash.js`](https://github.com/Dash-Industry-Forum/dash.js). **Minimum supported version of dash.js is v2.4.1.**
+
+## Important note
+
+Streamroot P2P module currently has compatibility issues when BOLA is activated on live streams. VOD is fine. We highly recommend you to deactivate BOLA for live streaming (including DVR streams):
+- for versions 2.5.0 and earlier: it is disabled by default. Make sure you did not activate it using the setter `enableBufferOccupancyABR`
+- for versions 2.6.0 and later: by default dash.js dynamically switches between throughput based rules and BOLA. Use `mediaPlayer.setABRStrategy("abrThroughput")` to disable BOLA (see [dash.js documentation](http://cdn.dashjs.org/latest/jsdoc/module-MediaPlayer.html#setABRStrategy__anchor))
+
+Contact Streamroot support for more information.
 
 ### Install via npm
 You can install the artifacts distributed as NPM modules:
@@ -141,7 +149,7 @@ If you want to test the wrapper with a specific version of Dash.js, you could ge
 npm run generate_example -- <Dash.js version>
 ```
 
-For example `npm run generate_example -- 2.4.0` will generate `example2.4.0.wrapper.html` with Dash.js `2.4.0` instead of the bundled Dash.js `2.3.0`.
+For example `npm run generate_example -- 2.4.1` will generate `example2.4.1.wrapper.html` with Dash.js `2.4.1` instead of the bundled Dash.js `2.6.0`.
 
 ### Configuration
 
