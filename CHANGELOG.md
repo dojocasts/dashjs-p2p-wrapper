@@ -6,6 +6,8 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 ## [Dev]
 
 ## [Unreleased]
+### Changed
+- Upgrade dash.js to 2.6 in bundle
 
 ## [1.11.44] - 2017-10-13
 ### Fixed
