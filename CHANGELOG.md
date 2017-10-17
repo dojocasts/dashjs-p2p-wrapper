@@ -7,6 +7,10 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 
 ## [Unreleased]
 
+## [1.11.45] - 2017-10-17
+### Changed
+- Upgrade dash.js to 2.6 in bundle
+
 ## [1.11.44] - 2017-10-13
 ### Fixed
 - Downswitch prevention when next segment is already prebuffered was broken for dash.js 2.6.0
@@ -184,3 +188,4 @@ This changelog's template come from [keepachangelog.com](http://keepachangelog.c
 [1.11.42]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.38...v1.11.42
 [1.11.43]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.38...v1.11.43
 [1.11.44]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.43...v1.11.44
+[1.11.45]: https://github.com/streamroot/dashjs-p2p-wrapper/compare/v1.11.44...v1.11.45
